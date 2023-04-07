@@ -1,0 +1,78 @@
+<router-outlet></router-outlet>
+<!-- <p *ngIf="userName">
+   Welcome  {{userName}}
+</p> -->
+<div id="loaderContainer" *ngIf="Gloader()">
+   <div id="loaderGif">
+      <img src='./../assets/image/loader-animated.gif' height="100"/>
+   </div>
+ </div>
+
+ <app-commonalert ></app-commonalert>
+ <!-- <app-commonalert *ngIf="local==-1"></app-commonalert> -->
+<!--
+<ng-container *ngFor="let c of apiResPopup;let i=index">
+   <div  class="modal show bg-blur" >
+       <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close(i)"><span aria-hidden="true">×</span></button>
+
+                   {{apiResPopup | json}}
+
+
+                   <div class="fw-100 text-center my-md" >
+                       <img alt="" src="./assets/img/new/check.svg" *ngIf="c.res.responsecode==200"/>
+                       <img alt="" src="./assets/img/new/error.svg" *ngIf="c.res.responsecode!=200"/>
+                       <div class="fw-100 break-word">
+
+                           <ng-container *ngIf="c.res.error">
+                               <ng-container *ngIf="c.res.error.errorMessage">
+                                   <strong class="fw-100 mt-3 text-uppercase text-capitalize">{{c.res.error.errorMessage}}</strong><br>
+                               </ng-container>
+
+                               <ng-container *ngIf="c.res.error.message">
+                                   <p class="fw-100 mt-3 text-capitalize">{{c.res.error.message}}</p><br>
+                               </ng-container>
+                           </ng-container>
+
+                           <ng-container *ngIf="!c.res.error">
+
+                               <ng-container *ngIf="c.res.errorMessage">
+                                   <strong class="fw-100 mt-3 text-uppercase text-capitalize">{{c.res.errorMessage}}</strong><br>
+                               </ng-container>
+                               <ng-container *ngIf="c.res.response">
+                                   <ng-container *ngIf="c.res.response.length!=1">
+                                       <ng-container *ngIf="c.res.response.errorMessage">
+                                           <strong class="fw-100 mt-3 text-uppercase text-capitalize">{{c.res.response.errorMessage}}</strong><br>
+                                       </ng-container>
+                                       <ng-container *ngIf="c.res.response.message">
+                                           <p class="fw-100 mt-3 text-capitalize" >{{c.res.response.message}}</p>
+                                       </ng-container>
+                                   </ng-container>
+
+                                   <ng-container *ngIf="c.res.response.length==1">
+                                           <ng-container *ngIf="c.res.response[0].errorMessage">
+                                               <strong class="fw-100 mt-3 text-uppercase text-capitalize">{{c.res.response[0].errorMessage}}</strong><br>
+                                           </ng-container>
+                                           <ng-container *ngIf="c.res.response[0].message">
+                                               <p class="fw-100 mt-3 text-capitalize" >{{c.res.response[0].message}}</p>
+                                           </ng-container>
+                                   </ng-container>
+                               </ng-container>
+
+                               <ng-container *ngIf="c.res.message">
+                                       <p class="fw-100 mt-3 text-capitalize" >{{c.res.message}}</p>
+                               </ng-container>
+                           </ng-container>
+
+
+
+                       </div>
+                       <div class="fw-100" *ngIf="c.res.responsecode==200">
+                           <button  class="btn btn-primary share-btn"  (click)="close(i)">Ok</button>
+                       </div>
+                   </div>
+               </div>
+       </div>
+   </div>
+</ng-container> -->

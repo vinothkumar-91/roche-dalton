@@ -1,0 +1,45 @@
+
+<nav class="navbar navbar-expand-xl">
+    <a class="navbar-brand" href="#">
+        <img class="logo" src="./assets/image/roche_logo.svg" height="34">
+        <!-- {{userDetail | json}} -->
+    </a>
+
+
+      <ng-container >
+        <div class="form-inline my-2 my-md-0 ms-auto" >
+            <div class="btn-group nav-item dropdown no-arrow">
+
+                <select  *ngIf="userDetail.region && (userDetail.role == 'admin')" class="form-control" style="height: 21px!important;min-height: 30px;margin-top: 9px!important;padding:4px !important" (ngModelChange)="regionChange($event)" [ngModel]='defaultRegion'>
+                    <option *ngFor="let obj of userDetail.region" [value]="obj">{{obj}}</option>
+                </select>
+
+                    <div mat-button [matMenuTriggerFor]="beforeMenu">
+                        <div class="profile-icon">
+                    <a class="nav nav-link dropdown-toggle"  id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="me-2 d-none d-lg-inline text-gray-600 small">
+                            {{userDetail.profile.given_name}}
+                        </span>
+                            <img src="./assets/image/icons/profile-icon.svg" height="36">
+                            <!-- <img *ngIf="userDetail.profile.picture" [src]="userDetail.profile.picture" height="36" class="rounded-circle"> -->
+                            <!-- <mat-icon>keyboard_arrow_down</mat-icon> -->
+                    </a>
+                        </div>
+                    </div>
+                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                        <!-- <ng-container *ngIf="userName()"><div class="dropdown-item" >{{userName()}}</div></ng-container> -->
+                            <span class="" > {{userDetail.profile.email}} </span>
+                            <div class="dropdown-divider" ></div>
+                            <!-- <button (click)="logout()" [routerLink]="['/login']"class="btn btn-default">Logout</button> -->
+                            <a class="dropdown-item" (click)="logout()" > Log Out</a>
+                    </mat-menu>
+            </div>
+        </div>
+    </ng-container>
+
+
+</nav>
+
+<div class="overall-loading" *ngIf="apiCall">
+    <img src="./assets/image/loader-animated.gif" style="height: 100px;">
+</div>

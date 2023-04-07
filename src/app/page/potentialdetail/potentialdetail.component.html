@@ -1,0 +1,45 @@
+
+
+<div class="flex-h-100">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h6 class="modal-title">
+            <ng-container >Entry: 132 <img src="./assets/image/icons/edit-white.svg" height="20" class="c-p" (click)="ceditPopup()" ></ng-container>
+
+        </h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"  (click)="cClosepopup()">
+            <span aria-hidden="true" class="font-initial">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+                <div class="fw-100" >
+
+<div class="fw-100 text-center">
+    <div class="fw-100 pop-detail-view">
+        <ul class="fw-100  mb-3" *ngFor="let l of formSet;let i=index">
+            <li class="lbl-head"><div>{{l.name}}</div></li>
+            <li  [class]="l.class" *ngFor="let l2 of l.fields;let i2=index"><div class="lbl">{{l2.field}}</div><div class="value"> -- </div></li>
+        </ul>
+
+        <div class="table-responsive">
+        <table class="mat-table table table-bordered table-sm text-start mb-3">
+            <tr class="mat-row">
+                <th class="mat-header-cell" ></th>
+                <th class="mat-header-cell"  *ngFor="let l of detailTable[0].fields;let i=index">{{l.field}}</th>
+            </tr>
+            <tr class="mat-row"  *ngFor="let l of detailTable;let i=index">
+                <td>{{l.name}}</td>
+                <td *ngFor="let c of l.fields;let j=index">{{c.value}}</td>
+            </tr>
+        </table>
+
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+</div>
+</div>

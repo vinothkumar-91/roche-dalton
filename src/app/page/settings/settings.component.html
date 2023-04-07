@@ -1,0 +1,666 @@
+<app-header></app-header>
+<mat-drawer-container class="main-wrapper-container">
+    <mat-drawer mode="side" opened>
+        <app-left-nav></app-left-nav>
+    </mat-drawer>
+    <mat-drawer-content  class="bg-gray p-0">
+
+        <div class="pageloader" *ngIf="apiCall">
+            <img src="./assets/image/loader-animated.gif" style="height: 100px;">
+        </div>
+                <!-- <div class="fw-100 p-3 bs" style="background:var(--e-light-blue);">
+                    <button type="button" class="btn btn-primary float-end" (click)="addproduct()">Add Indication</button>
+                </div> -->
+        <div class="table-card-wrapper" *ngIf="!apiCall">
+            <div class="table-card">
+                        <h6 class="title mb-0">Product with indication control
+                            <!-- <button type="button" class="btn btn-primary btn-sm float-end ms-1" (click)="addproduct('i')">Add Indication</button> -->
+                            <!-- <button type="button" class="btn btn-primary btn-sm float-end" (click)="addproduct('p')">Add Product</button></h6> -->
+                            <button type="button" class="btn btn-outline-dark btn-sm float-end ms-2" [matTooltip]="(collapseAll)?'Expand All':'Collapse All'" style="min-width:auto;padding: 2px!important;" (click)="collapseAll = !collapseAll">
+                                <mat-icon style="font-size:20px;height: auto;"  *ngIf="!collapseAll">unfold_more</mat-icon>
+                                <mat-icon style="font-size:20px;height: auto;"  *ngIf="collapseAll">unfold_less</mat-icon>
+                            </button>
+                            <button type="button" class="btn btn-outline-dark btn-sm float-end ms-1" (click)="this.popuptype = 'indicationGroup'">Indication Group</button>
+                            <button type="button" class="btn btn-outline-dark btn-sm float-end ms-1" (click)="this.popuptype = 'indication'">Indication</button>
+                            <button type="button" class="btn btn-outline-dark btn-sm float-end" (click)="this.popuptype = 'product'">Product</button>
+
+                        </h6>
+
+
+
+                <div class="tab-details tablescroll fw-100 " style="height: calc(100% - 58px);">
+
+                    <div class="tab ">
+                        <table class="view-table contorller-table" >
+
+                            <ng-container *ngFor="let l of settingObj.setting;let i=index">
+                                <!-- <div [sortablejs]="settingObj.setting" [sortablejsOptions]="normalOptions"  class="table-row-group"> -->
+                            <tr class="hd">
+                                <td colspan="6" ><span class="float-start">{{l.name}}</span><span class="right">
+                                    <!-- <img src="./assets/image/icons/add.svg" height="12" (click)="indication(l)"> -->
+
+                                <!-- <mat-icon class="drag c-p handle ms-2 float-end" *ngIf="collapseAll" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()"> drag_indicator</mat-icon> -->
+                                    <div class="float-end ms-2 mt-1">
+                                        <img src="./assets/image/icons/delete.svg" height="16" class="c-p" (click)="currentDeleteObj.ptype='productIndication';deleteConfirmation('projectDelete',l);">
+                                    </div>
+                                    <button type="button" class="btn btn-outline-dark btn-xsm float-end RocheSansB add-indication-btn" (click)="addEditCtrl('addCtrl',l,'')">Add Controller</button>
+                                </span></td>
+                            </tr>
+                            <!-- <tr><td colspan="5"><div *ngFor="let item of l.ctrls">{{ item.oid }}</div></td></tr> -->
+                            <div [sortablejs]="l.ctrls" [sortablejsOptions]="normalOptions" *ngIf="!collapseAll" class="table-row-group" [attr.id]="l.id"  >
+                                <ng-container *ngFor="let l2 of l.ctrls;let i2=index">
+                                    <tr [attr.id]="l2.id" >
+                                        <td><span> {{'f_'+l2.id}} </span></td>
+                                        <td>{{l2.name}}<br><small class="sub-info">{{l2.source}}</small></td>
+                                        <td>
+
+
+                                            <span class="d-block text-end clr">
+                                                <span class="badge bg-primary" *ngIf="i2==l.ctrls.length-1">Eligible</span>
+                                                <small class="RocheSansB text-black">{{l2.value}}%</small>
+                                                <!-- <input type="text" [value]="" class="form-control" placeholder="">
+                                                <small>{{l2.percentage}}%</small>-->
+                                            </span>
+
+                                            <!-- <div class="input-group">
+                                                <input type="text" [value]="l2.percentage" class="form-control" placeholder="">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="basic-addon2">%</span>
+                                                </div>
+                                            </div> -->
+
+
+                                        </td>
+                                        <td>
+                                            <img src="./assets/image/icons/edit.svg" height="16" class="c-p"  (click)="addEditCtrl('editCtrl',l,l2)">
+                                        </td>
+                                        <td>
+                                            <img src="./assets/image/icons/delete.svg" height="16" class="c-p" (click)="currentDeleteObj.ptype='controller';deleteConfirmation('ctrlDelete',l2);">
+                                        </td>
+                                        <td class="handle">
+                                            <mat-icon class="drag c-p" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()"> drag_indicator</mat-icon>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr ><td colspan="2"> </td></tr> -->
+                                </ng-container>
+                            </div>
+                        <!-- </div> -->
+                        </ng-container>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="com-slider">
+
+                <!-- <div class="card  mb-2">
+                    <div class="card-body pt-5">
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                            [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend"
+                            [chartType]="barChartType" style="height:300px"></canvas>
+
+                    </div>
+                </div> -->
+                <div class="w-full" *ngIf="!apiCall">
+
+                    <div class="table-card m-0 w-full correction-factor" >
+                        <h6 class="title  mb-0">Correction Factor
+                            <img src="./assets/image/icons/edit.svg" height="20" class="float-end c-p" (click)="popuptype='correctionF'">
+                        </h6>
+                        <div class="tab-details tablescroll fw-100 " >
+                            <div class="card-body pt-0">
+
+
+                                <div class="table-responsive">
+                                    <table class="layout-fixed w-100">
+                                        <tbody>
+                                            <ng-container *ngFor="let ccf of correctionFactor;let i=index">
+
+                                                <ng-container *ngIf="i % 2 != 0">
+                                                    <tr><td colspan="2"></td></tr>
+                                                </ng-container>
+                                                <ng-container *ngIf="i % 2 == 0">
+                                                    <tr class=""  >
+                                                        <td >
+                                                    <div class="callout">
+
+                                                        <span>{{correctionFactor[i].name}}</span> <span class="float-end">
+                                                            <span class="badge bg-secondary badge-pill">{{correctionFactor[i].percentage}}%</span>
+
+                                                        <!-- <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="" [value]="settingObj.correctionFactor[i].percentage">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="basic-addon2">%</span>
+                                                        </div>
+                                                    </div>  -->
+                                                </span>
+                                                </div></td>
+                                                    <td >
+                                                        <ng-container *ngIf="correctionFactor[i+1]">
+                                                        <div class="callout">
+                                                            <span>{{correctionFactor[i+1].name}}</span> <span class="float-end">
+                                                                <span class="badge bg-secondary badge-pill">{{correctionFactor[i+1].percentage}}%</span>
+                                                            <!-- <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="" [value]="settingObj.correctionFactor[i+1].percentage">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text" id="basic-addon2">%</span>
+                                                            </div>
+                                                        </div>  -->
+                                                    </span>
+                                                    </div></ng-container>
+                                                </td>
+                                            </tr>
+
+                                                </ng-container>
+                                        </ng-container>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                    <div class="table-card m-0 w-full ">
+                        <h6 class="title  mb-0">Elligible
+                            <!-- <button type="button" class="btn btn-primary btn-sm float-end" (click)="addproduct('i')">Add indication</button> -->
+                        </h6>
+                        <div class="tab-details tablescroll fw-100 " style="height: calc(100% - 52px);">
+
+
+                    <!-- <div class="card-header">Overview</div> -->
+                    <div class="card-body detail-table pt-0 indication-group">
+                        <div class="table-responsive">
+                            <table class="mat-table" *ngFor="let indg of settingObj.indicationgroup;let i=index">
+                                <thead>
+                                    <tr class="mat-row ">
+                                        <th class="mat-header-cell text-start" colspan="2">{{indg.key}}
+                                            <!-- <span class="float-end">
+                                                <img src="./assets/image/icons/delete.svg" height="12" class="c-p" (click)="this.popuptype = 'delete'">
+                                            </span> -->
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="mat-row"  *ngFor="let ind of indg.value;let i2=index">
+                                        <td style="width:180px">{{ind.name}} <small class="float-end mt-1 RocheSansB text-black">{{
+                                            (ind.eligible*100).toFixed(2)
+                                        }}%</small></td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar bg-secondary " role="progressbar" [style.width.%]="ind.eligible*100" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                              </div>
+                                        </td>
+                                        <!-- <td style="width:30px">
+                                            <span class="float-end">
+                                                <img src="./assets/image/icons/delete.svg" height="12" class="c-p" (click)="this.popuptype = 'delete'">
+                                            </span>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+        </div>
+        <!-- <div class="fw-100 text-center pt-3 pb-3" *ngIf="!apiCall" style="background: var(--gray5);"><a href="#"
+                class="btn btn-success">Update Controller</a></div> -->
+
+
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<div class="modal show confirm-popup" tabindex="-1" role="dialog" aria-labelledby="" *ngIf="(popuptype == 'indicationGroup' || popuptype =='indication' || popuptype == 'product')">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content p-4">
+            <h4 class="fw-100 mt-1 text-center mb-4">
+                <span *ngIf="(popuptype == 'product')">Product</span>
+                <span *ngIf="(popuptype == 'indication')">Indication</span>
+                <span *ngIf="(popuptype == 'indicationGroup')">Indication Group</span>
+                </h4>
+
+            <!-- <table class="view-table detail" >
+                <tr ><td>Product/Indicaction</td><td class="break-word">Perjeta - HER2 Neo Adj</td></tr>
+                <tr ><td>Controller</td><td class="break-word">Total Breast Cancer patients 14.4 per 100000</td></tr>
+                <tr ><td>Source</td><td class="break-word">Breast cancer India Prevalence and Incidence dat.pdf</td></tr>
+                <tr ><td>Value</td><td class="break-word">15%</td></tr>
+             </table> -->
+
+
+
+
+             <form class='single-view'  #form="ngForm" (ngSubmit)="form.form.valid && productIndicationSubmit()" autocomplete="off">
+
+
+                    <div class="f-feilds" style="height: auto;clear:both;">
+
+                        <div class="form-check form-check-inline" *ngFor="let t of PIDetails.popupTypes;let i=index"  >
+                            <input class="form-check-input" type="radio" [name]="t.value"  [id]="t.value" [(ngModel)]="PIDetails.popupValue" [value]="t.value">
+                            <label class="form-check-label" [for]="t.value">{{t.text}}
+                            </label>
+                        </div>
+                        <ng-container  *ngIf="(popuptype == 'product')">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="map" id="map" [(ngModel)]="PIDetails.popupValue" value="map">
+                                <label class="form-check-label" for="map">Mapping</label>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <ng-container *ngIf="(PIDetails.popupValue == 'add' && popuptype == 'product')">
+                        <div class="f-feilds">
+                            <label>Product Name</label>
+                            <input type="text" class="form-control" required name="pname" [(ngModel)]="PIDetails.productName" #pname="ngModel">
+                            <div class="fw-100"  *ngIf="(pname.invalid && (pname.dirty || pname.touched)) || (form.submitted && pname.invalid)">
+                                <small class="msg error" *ngIf="pname.errors?.['required']">Required</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds">
+                            <label>Select Indication</label>
+                            <select [(ngModel)]="PIDetails.indication" name="indication" class="form-control"  >
+                                <option *ngFor="let i of portal.indicationList" [value]="i.id">{{i.name}}</option>
+                            </select>
+                        </div>
+                    </ng-container>
+
+
+                    <ng-container *ngIf="(PIDetails.popupValue == 'delete' && popuptype == 'product')">
+                        <div class="f-feilds">
+                            <label>Select Product</label>
+                            <select [(ngModel)]="PIDetails.product" name="product" class="form-control"  >
+                                <option *ngFor="let i of portal.productList" [value]="i.id">{{i.name}}</option>
+                            </select>
+                        </div>
+                    </ng-container>
+
+
+                    <ng-container *ngIf="(PIDetails.popupValue == 'map' && popuptype == 'product')">
+                        <div class="f-feilds">
+                            <label>Select Product</label>
+                            <select [(ngModel)]="PIDetails.product" name="product" class="form-control"  >
+                                <option *ngFor="let i of portal.productList" [value]="i.id">{{i.name}}</option>
+                            </select>
+                        </div>
+                        <div class="f-feilds">
+                            <label>Select Indication</label>
+                            <select [(ngModel)]="PIDetails.indication" name="indication" class="form-control"  >
+                                <option *ngFor="let i of portal.indicationList" [value]="i.id">{{i.name}}</option>
+                            </select>
+                        </div>
+                    </ng-container>
+
+
+
+                    <ng-container *ngIf="(PIDetails.popupValue == 'add' && popuptype == 'indication')">
+                        <div class="f-feilds">
+                            <label>Indication Name</label>
+                            <input type="text" class="form-control" required name="iname" [(ngModel)]="PIDetails.indicationName" #iname="ngModel">
+                            <div class="fw-100"  *ngIf="(iname.invalid && (iname.dirty || iname.touched)) || (form.submitted && iname.invalid)">
+                                <small class="msg error" *ngIf="iname.errors?.['required']">Required</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds">
+                            <label>Select Indication Group</label>
+                            <select [(ngModel)]="PIDetails.indicationGroup" name="indicationGroup" class="form-control"  >
+                                <option *ngFor="let i of portal.indicationGroupList" [value]="i.id">{{i.name}}</option>
+                            </select>
+                        </div>
+                    </ng-container>
+
+
+                    <ng-container *ngIf="(PIDetails.popupValue == 'delete' && popuptype == 'indication')">
+                        <div class="f-feilds">
+                            <label>Select Indication</label>
+                            <select [(ngModel)]="PIDetails.indication" name="indication" class="form-control"  >
+                                <option *ngFor="let i of portal.indicationList" [value]="i.id">{{i.name}}</option>
+                            </select>
+                        </div>
+                    </ng-container>
+
+
+
+                    <ng-container *ngIf="(PIDetails.popupValue == 'add' && popuptype == 'indicationGroup')">
+                        <div class="f-feilds" *ngIf="(PIDetails.popupValue == 'add' && popuptype == 'indicationGroup')">
+                            <label>Indication Group Name</label>
+                            <input type="text" class="form-control" required name="igname" [(ngModel)]="PIDetails.indicationGroupName" #igname="ngModel">
+                            <div class="fw-100"  *ngIf="(igname.invalid && (igname.dirty || igname.touched)) || (form.submitted && igname.invalid)">
+                                <small class="msg error" *ngIf="igname.errors?.['required']">Required</small>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="(PIDetails.popupValue == 'delete' && popuptype == 'indicationGroup')">
+                        <div class="f-feilds">
+                            <label>Select Indication Group</label>
+                            <select [(ngModel)]="PIDetails.indicationGroup" name="indicationGroup" class="form-control"  >
+                                <option *ngFor="let i of portal.indicationGroupList" [value]="i.id">{{i.name}}</option>
+                            </select>
+                        </div>
+                    </ng-container>
+
+                    <div class="fw-100 p-2 text-center mt-2">
+                        <button  class="btn btn-secondary my-md me-3"  (click)="popuptype = ''">Cancel</button>
+                        <!-- <button  class="btn btn-danger my-md me-3"  *ngIf="PIDetails.popupValue == 'delete'"
+                        [ngClass]="{'forminvalid':!form.valid}" [disabled]="apiCall" type="submit"
+                        >Delete</button> -->
+                        <!-- <button class="btn btn-success my-md me-3"
+                        [ngClass]="{'forminvalid':!form.valid,'btn-danger':(PIDetails.popupValue == 'delete'),'btn-success':(PIDetails.popupValue != 'delete')}" [disabled]="apiCall" type="submit"
+                        >
+                            <span *ngIf="(PIDetails.popupValue != 'delete')">Save</span>
+                            <span *ngIf="(PIDetails.popupValue == 'delete')">Delete</span>
+                        </button> -->
+
+                        <button  class="btn btn-success my-md me-3"  *ngIf="PIDetails.popupValue != 'delete'"
+                        [ngClass]="{'forminvalid':!form.valid}" [disabled]="apiCall" type="submit"
+                        >Save</button>
+
+                        <button  class="btn btn-danger my-md me-3"  *ngIf="PIDetails.popupValue == 'delete'"
+                        type="submit" (click)="currentDeleteObj=PIDetails;currentDeleteObj.ptype=popuptype;popuptype = 'deleteConfirmPD';"
+                        >Delete</button>
+
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal show confirm-popup" tabindex="-1" role="dialog" aria-labelledby="" *ngIf="popuptype == 'projectDelete' || popuptype == 'ctrlDelete' || popuptype == 'deleteConfirmPD'">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content p-4">
+            <h3 class="fw-100 my-2 text-center">Are you sure to delete?</h3>
+            <table class="view-table detail my-3" >
+                <!-- {{currentDeleteObj.ptype|json}}
+                {{currentDeleteObj.ptype}} -->
+
+                <ng-container *ngIf="popuptype == 'deleteConfirmPD'"  >
+                    <tr ><td>
+                        <span *ngIf="currentDeleteObj['ptype'] == 'product'">Product</span>
+                        <span *ngIf="currentDeleteObj['ptype'] == 'indication'">Indicaction</span>
+                        <span *ngIf="currentDeleteObj['ptype'] == 'indicationGroup'">Indicaction Group</span>
+
+                    </td>
+                    <ng-container *ngFor="let n of portal[currentDeleteObj.ptype+'List'];let i=index" >
+                        <td class="break-word" *ngIf="n.id == currentDeleteObj[currentDeleteObj.ptype]" >{{n.name}}</td>
+                    </ng-container>
+                </tr>
+                </ng-container>
+                <ng-container *ngIf="popuptype == 'projectDelete'"  >
+                    <tr ><td>Product/Indicaction</td><td class="break-word">{{currentDeleteObj.name}}</td></tr>
+                </ng-container>
+                <ng-container *ngIf="popuptype == 'ctrlDelete'"  >
+                    <tr ><td>Controller</td><td class="break-word">{{currentDeleteObj.name}}</td></tr>
+                    <tr ><td>Source</td><td class="break-word">{{currentDeleteObj.source}}</td></tr>
+                    <tr ><td>Value</td><td class="break-word">{{currentDeleteObj.value}}</td></tr>
+
+                </ng-container>
+             </table>
+             <div class="fw-100 p-2 text-center mt-2">
+                <button  class="btn btn-secondary my-md me-3"  (click)="this.popuptype = ''">Cancel</button>
+                <button class="btn btn-danger my-md me-3"  (click)="deleteCallback()" >Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal show right-popup" tabindex="-1" role="dialog" aria-labelledby="" *ngIf="popuptype=='correctionF'">
+    <div class="modal-dialog single-form-view" role="document" >
+        <form class="single-view" #form="ngForm" (ngSubmit)="form.form.valid && onCFSubmit(form)" autocomplete="off"
+            >
+            <div class="modal-content popup-form">
+                <div class="modal-header">
+                    <h6 class="modal-title">Correction Factor</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="popuptype=''">
+                        <span aria-hidden="true" class="font-initial">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="f-row" >
+                        <div class="f-feilds"><label>OOP</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="" required min="0" max="100" name="oop" #oop="ngModel"
+                                [(ngModel)]="cfForm.oop">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div class="fw-100"  *ngIf="(oop.invalid && (oop.dirty || oop.touched)) || (form.submitted && oop.invalid)">
+                                <small class="msg error" *ngIf="oop.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!oop.errors?.['required'] && oop.invalid">Invalid</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds"><label>Defence & ECHS</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="" required min="0" max="100" name="def" #def="ngModel"
+                                [(ngModel)]="cfForm.def">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div class="fw-100"  *ngIf="(def.invalid && (def.dirty || def.touched)) || (form.submitted && def.invalid)">
+                                <small class="msg error" *ngIf="def.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!def.errors?.['required'] && def.invalid">Invalid</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds"><label>CGHS</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="" required min="0" max="100" name="cghs" #cghs="ngModel"
+                                [(ngModel)]="cfForm.cghs">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div class="fw-100"  *ngIf="(cghs.invalid && (cghs.dirty || cghs.touched)) || (form.submitted && cghs.invalid)">
+                                <small class="msg error" *ngIf="cghs.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!cghs.errors?.['required'] && cghs.invalid">Invalid</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds"><label>Railways</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="" required min="0" max="100" name="railways" #railways="ngModel"
+                                [(ngModel)]="cfForm.railways">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div class="fw-100"  *ngIf="(railways.invalid && (railways.dirty || railways.touched)) || (form.submitted && railways.invalid)">
+                                <small class="msg error" *ngIf="railways.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!railways.errors?.['required'] && railways.invalid">Invalid</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds"><label>PSU</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="" required min="0" max="100" name="psu" #psu="ngModel"
+                                [(ngModel)]="cfForm.psu">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div class="fw-100"  *ngIf="(psu.invalid && (psu.dirty || psu.touched)) || (form.submitted && psu.invalid)">
+                                <small class="msg error" *ngIf="psu.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!psu.errors?.['required'] && psu.invalid">Invalid</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds"><label>ESI</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="" required min="0" max="100" name="esi" #esi="ngModel"
+                                [(ngModel)]="cfForm.esi">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div class="fw-100"  *ngIf="(esi.invalid && (esi.dirty || esi.touched)) || (form.submitted && esi.invalid)">
+                                <small class="msg error" *ngIf="esi.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!esi.errors?.['required'] && esi.invalid">Invalid</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds"><label>State Govt</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="" required min="0" max="100" name="stGvt" #stGvt="ngModel"
+                                [(ngModel)]="cfForm.stGvt">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div class="fw-100"  *ngIf="(stGvt.invalid && (stGvt.dirty || stGvt.touched)) || (form.submitted && stGvt.invalid)">
+                                <small class="msg error" *ngIf="stGvt.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!stGvt.errors?.['required'] && stGvt.invalid">Invalid</small>
+                            </div>
+                        </div>
+                        <!-- <div class="f-feilds"><label>Defence & ECHS</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="" required min="0" max="100" name="oop" #oop="ngModel" [(ngModel)]="cfForm.oop">
+                                <span class="input-group-text">%</span>
+                              </div>
+                        </div>
+                        <div class="f-feilds"><label>CGHS</label><input type="text" class="form-control" required minlength="4" name="name" value="100%"></div>
+                        <div class="f-feilds"><label>Railways</label><input type="text" class="form-control" required minlength="4" name="name" value="100%"></div>
+                        <div class="f-feilds"><label>PSU</label><input type="text" class="form-control" required minlength="4" name="name" value="100%"></div>
+                        <div class="f-feilds"><label>ESI</label><input type="text" class="form-control" required minlength="4" name="name" value="100%"></div>
+                        <div class="f-feilds"><label>State Govt</label><input type="text" class="form-control" required minlength="4" name="name" value="100%">
+                    </div> -->
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button  class="btn btn-primary  mt-0"  [ngClass]="{'forminvalid':((!changeP.valid || apiCall || (profile.password.confirm != profile.password.newp))  )}"  >Confirm</button> -->
+
+
+                    <button class="btn btn-success" [ngClass]="{'forminvalid':!form.valid}" [disabled]="apiCall"
+                        type="submit">
+                        <span>Save</span>
+                    </button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal show right-popup add-control" tabindex="-1" role="dialog" aria-labelledby="" *ngIf="popuptype=='addCtrl' || popuptype=='editCtrl'">
+    <div class="modal-dialog single-form-view" role="document" >
+        <form class="single-view" #addCtrlForm="ngForm" (ngSubmit)="addCtrlForm.form.valid && addCtrlSubmit(addCtrlForm)" autocomplete="off"
+            >
+            <div class="modal-content popup-form">
+                <div class="modal-header">
+                    <h6 class="modal-title">
+                        <span *ngIf="(popuptype == 'addCtrl')">Add</span>
+                        <span *ngIf="(popuptype == 'editCtrl')">Edit</span>
+                         Controller</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="popuptype=''">
+                        <span aria-hidden="true" class="font-initial">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="view-table detail add-p" >
+                        <tr ><td>Product/Indicaction</td>
+                            <td class="break-word">{{currentCntrlObj.name}}
+                                <!-- <small>(Breast)</small> -->
+                            </td></tr>
+
+
+                    </table>
+                    <div class="f-row" >
+                        <div class="f-feilds"><label>Name</label>
+                                <input type="text" class="form-control" placeholder="" required  name="cname" #cname="ngModel"
+                                [(ngModel)]="picForm.cname">
+                            <div class="fw-100"  *ngIf="(cname.invalid && (cname.dirty || cname.touched)) || (addCtrlForm.submitted && cname.invalid)">
+                                <small class="msg error" *ngIf="cname.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!cname.errors?.['required'] && cname.invalid">Invalid</small>
+                            </div>
+                        </div>
+                        <div class="f-feilds"><label>Source</label>
+                                <input type="text" class="form-control" placeholder="" required  name="source" #source="ngModel"
+                                [(ngModel)]="picForm.source">
+                            <div class="fw-100"  *ngIf="(source.invalid && (source.dirty || source.touched)) || (addCtrlForm.submitted && source.invalid)">
+                                <small class="msg error" *ngIf="source.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!source.errors?.['required'] && source.invalid">Invalid</small>
+                            </div>
+                        </div>
+<!--
+                        <div class="f-feilds"><label>Value</label>
+                                <input type="text" class="form-control" placeholder="" required  name="cvalue" #cvalue="ngModel"
+                                [(ngModel)]="picForm.cvalue">
+                            <div class="fw-100"  *ngIf="(cvalue.invalid && (cvalue.dirty || cvalue.touched)) || (addCtrlForm.submitted && cvalue.invalid)">
+                                <small class="msg error" *ngIf="cvalue.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!cvalue.errors?.['required'] && cvalue.invalid">Invalid</small>
+                            </div>
+                        </div> -->
+                        <div class="f-feilds" style="clear:both;">
+                            <label>Formula/Value </label>
+                            <div class="form-control-parent " empty>
+                                    <input type="text" class="form-control" required  name="formula"
+                                        [(ngModel)]="picForm.formula" #formula="ngModel" (keyup)="evaluateFormula()">
+
+                                    <div class="fw-100"  *ngIf="(formula.invalid && (formula.dirty || formula.touched)) || (addCtrlForm.submitted && formula.invalid) || ((addCtrlForm.submitted && !picForm.formulaVal) || formula.touched && !picForm.formulaVal)">
+                                        <small class="msg error" *ngIf="formula.errors?.['required']">Required</small>
+                                        <small class="msg error" *ngIf="(!formula.errors?.['required'] && formula.invalid) || (!formula.errors?.['required'] && !picForm.formulaVal)">Invalid</small>
+                                    </div>
+                                    <div class="fw-100" >
+                                        <label *ngIf="picForm.formulaVal">Value </label>
+                                        <div *ngIf="picForm.formulaVal" class="input-group"><input type="text" class="form-control" required  name="formulaVal"
+                                            disabled [value]="picForm.formulaVal">
+                                                <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                                    <div class="fw-100">
+                                                    <div class="card bg-gray">
+                                                        <div class="card-body p-0" role="alert">
+                                                        <h6 class="">Formula Valid: (<small>Use proper brackets</small>)</h6>
+                                                        <ul class="list-unstyled text-success">
+                                                            <li>
+                                                                <!-- <u>Examples:</u> -->
+                                                              <ul>
+                                                                <li class=""><mat-icon>done</mat-icon>100/2</li>
+                                                                <li class=""><mat-icon>done</mat-icon>(100/2)*5</li>
+                                                                <li class=""><mat-icon>done</mat-icon>25*(9/100)</li>
+                                                                <li class=""><mat-icon>done</mat-icon>(f_23*100)/2</li>
+                                                                <li class=""><mat-icon>done</mat-icon>[f_23*100]/2</li>
+                                                              </ul>
+                                                            </li>
+                                                          </ul>
+                                                          <hr>
+                                                        <h6 class="">Formula Invalid: (<small>Don't use %</small>)</h6>
+                                                        <ul class="list-unstyled text-danger">
+                                                            <li>
+                                                                <!-- <u>Examples:</u> -->
+                                                              <ul>
+                                                                <li class=""><mat-icon>close</mat-icon>100%2</li>
+                                                                <li class=""><mat-icon>close</mat-icon>(100/2)5</li>
+                                                                <li class=""><mat-icon>close</mat-icon>25*(9%)</li>
+                                                                <li class=""><mat-icon>close</mat-icon>(f_23*100]/2</li>
+                                                              </ul>
+                                                            </li>
+                                                          </ul>
+                                                        </div>
+                                                    </div></div>
+                            </div>
+
+                        </div>
+                        <br><br><hr>
+
+<!--
+                        <div class="f-feilds"><label>Defence & ECHS</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="" required min="0" max="100" name="def" #def="ngModel"
+                                [(ngModel)]="cfForm.def">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div class="fw-100"  *ngIf="(def.invalid && (def.dirty || def.touched)) || (form.submitted && def.invalid)">
+                                <small class="msg error" *ngIf="def.errors?.['required']">Required</small>
+                                <small class="msg error" *ngIf="!def.errors?.['required'] && def.invalid">Invalid</small>
+                            </div>
+                        </div> -->
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success" [ngClass]="{'forminvalid': !((addCtrlForm.valid)&&((picForm.formulaVal== null)?false:true)) }" [disabled]="apiCall" type="submit">
+                        <span>Save</span>
+                    </button>
+                </div>
+
+
+
+            </div>
+        </form>
+    </div>
+</div>

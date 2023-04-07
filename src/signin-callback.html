@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.10.1/oidc-client.min.js"></script>
+    <script>
+      var userManager = new Oidc.UserManager();
+
+      userManager.signinRedirectCallback().then(
+        (user) => {
+          alert('signin redirect successful.');
+          window.history.replaceState(
+            {},
+            window.document.title,
+            window.location.origin
+          );
+          window.location = '/';
+        },
+        (err) => {
+          alert('Error caught in signinRedirectCallback()');
+          console.log('Error caught in signinRedirectCallback().');
+          console.error(err);
+        }
+      );
+
+      userManager.signinPopupCallback().then(
+        (user) => {
+          alert('signin pop up successful.');
+          window.history.replaceState(
+            {},
+            window.document.title,
+            window.location.origin
+          );
+          window.location = '/';
+        },
+        (err) => {
+          alert('Error caught in signinPopupCallback()');
+          console.log('Error caught in signinPopupCallback().');
+          console.error(err);
+        }
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

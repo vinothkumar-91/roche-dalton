@@ -1,0 +1,129 @@
+<app-header></app-header>
+<mat-drawer-container class="main-wrapper-container">
+    <mat-drawer #sidenav mode="side" opened>
+        <app-left-nav></app-left-nav>
+    </mat-drawer>
+    <mat-drawer-content class="bg-gray">
+
+        <div class="fw-100">
+            <div class="card fw-100">
+                <h6 class="title-inner">Potential Calculation table</h6>
+                <div class="fw-100">
+
+                    <div class="table-header-area">
+                        <div class="tablesearch float-start">
+                            <mat-form-field appearance="fill">
+                                <img src="./assets/image/search.svg" height="36" alt="">
+                                <input type="text" class="table-search" placeholder="Type keywords ..." matInput
+                                    #searchContainer autocomplete="off" [(ngModel)]="filter" #ctrl="ngModel"
+                                    (keyup)="applyFilter(searchContainer.value)" />
+                            </mat-form-field>
+                        </div>
+                        <div class="float-end">
+
+                            <button type="button" class="btn btn-outline-dark btn-sm mt-2 me-2"  (click)="currentObj={};popuptype = 'addEntry'"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="18" height="18"><path fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M48 96h96M96 48v96"/><circle cx="96" cy="96" r="84" fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></svg> Add</button>
+
+                            <button type="button" class="btn btn-outline-dark btn-sm mt-2 me-2"   (click)="popuptype = 'bulkupload'"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="18" height="18"><path fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M86 144V25M45.74 59L86 24l40.26 35"/><path fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M14 128v28a12 12 0 0 0 12 12h120a12 12 0 0 0 12-12v-28"/></svg> Bulk upload</button>
+
+                            <button type="button" class="btn btn-success btn-sm mt-2 mr-2" (click)="dynamicExcel()"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="18" height="18"><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M96 24v119M136.26 109L96 144l-40.26-35"/><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M24 128v28a12 12 0 0 0 12 12h120a12 12 0 0 0 12-12v-28"/></svg> Export</button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive fw-100">
+                        <mat-table matTableExporter [dataSource]="data_dataSource" matSort #dataTable
+                            #exporter="matTableExporter" class="row-click">
+                            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns_order">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
+                                <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                            </ng-container>
+                            <mat-header-row *matHeaderRowDef="displayedColumns_order"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns_order;"
+                                (click)="currentObj=row;popuptype = 'addEntry'">
+                            </mat-row>
+                        </mat-table>
+
+                        <table class="mat-table">
+                            <tr class="mat-row" *ngIf="apiCall">
+                                <td class="mat-cell" style="text-align: center;"
+                                    [attr.colspan]="displayedColumns_order.length">
+                                    <img src="./assets/image/loader-animated.gif" style="height: 60px;">
+                                </td>
+                            </tr>
+                            <tr class="mat-row"
+                                *ngIf="(!data_dataSource.data.length || !data_dataSource.filteredData.length) && !apiCall">
+                                <td class="mat-cell" style="text-align: center;"
+                                    [attr.colspan]="displayedColumns_order.length">
+                                    No Records Found! <span
+                                    *ngIf="!data_dataSource.filteredData.length && data_dataSource.data.length">(Search
+                                        Result)</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <mat-paginator #orderMatPaginator showFirstLastButtons pageSize="20" [pageSizeOptions]="[5, 10,20,30]"></mat-paginator>
+                </div>
+            </div>
+        </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+<div class="modal show confirm-popup" tabindex="-1" role="dialog" aria-labelledby="" *ngIf="popuptype == 'bulkupload'">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content p-4">
+            <h4 class="fw-100 mt-2 mb-4 text-center">Potential Bulk upload</h4>
+            <form class='single-view'>
+                <div class="f-feilds browse-field" *ngIf="isExcelValid">
+                        <label >Upload Excel*</label>
+                        <label class="file-upload" [ngClass]="{'disabled':apiCall}"><input  multiple=""
+                            required enctype="multipart/form-data" (change)="uploadData($event)"
+                            type="file" class="form-control" name="document"  min="0"/></label>
+                            <div class="fw-100">
+                                <span class="float-end action-link"  (click)="sampleExcel()">Download Sample (xls)</span>
+                            </div>
+                </div>
+
+                <div class="text-danger" *ngIf="!isExcelValid">
+                    Error occur in row no. - <mark>{{invalidRow | json}}</mark>.
+                </div>
+
+                <div class="fw-100 p-2 text-center mt-2">
+                    <ng-container *ngIf="isExcelValid">
+                        <button class="btn btn-secondary my-md mr-3"  (click)="popuptype = ''">Cancel</button>
+                        <button class="btn btn-success my-md mr-3"  (click)="popuptype = ''" >Upload</button>
+                    </ng-container>
+
+                    <ng-container *ngIf="!isExcelValid">
+                        <button class="btn btn-secondary my-md mr-3"  (click)="popuptype = '';isExcelValid = true" >Ok</button>
+                    </ng-container>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="popuptype == 'addEntry'  || popuptype == 'detailView'" class="modal show right-popup" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+
+            <!-- <div class="modal-header">
+                <h6 class="modal-title">
+                    <ng-container *ngIf="popuptype == 'addEntry'">Add Entry</ng-container>
+                    <ng-container *ngIf="popuptype == 'detailView'">Entry: 132 <img src="./assets/image/icons/edit-white.svg" height="20" class="c-p" ></ng-container>
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="popuptype = ''">
+                    <span aria-hidden="true" class="font-initial">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"> -->
+                <ng-container *ngIf="formSet">
+                    <app-potentialform *ngIf="popuptype == 'addEntry'" [currentObj]="currentObj"  (closePopup)="popuptype =''"></app-potentialform>
+                    <!-- <app-potentialdetail *ngIf="popuptype == 'detailView'"  [detailTable]="detailTable" (closePopup)="popuptype =''"  (editPopup)="popuptype ='addEntry'"></app-potentialdetail> -->
+                </ng-container>
+
+            <!-- </div> -->
+    </div>
+</div>

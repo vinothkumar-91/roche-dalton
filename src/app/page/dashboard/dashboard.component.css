@@ -1,0 +1,21 @@
+
+.project-list{margin:  0 20px 20px 0;width: calc(25% - 15px);float:left}
+
+
+@media screen and (min-width:1200px) {
+    .project-list:nth-child(4n){margin-right:0}
+}
+@media screen and (min-width:768px) and (max-width:1200px) {
+    .project-list{width: calc(33.33% - 15px);}
+    .project-list:nth-child(3n){margin-right:0}
+}
+
+@media screen and (min-width:500px) and (max-width:768px) {
+    .project-list{width: calc(50% - 10px);}
+    .project-list:nth-child(2n){margin-right:0}
+}
+
+
+@media screen and (min-width:300px) and (max-width:500px) {
+    .project-list{width: calc(100%);margin-right:0}
+}

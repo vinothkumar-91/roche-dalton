@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.10.1/oidc-client.min.js"></script>
+    <script>
+      var userManager = new Oidc.UserManager();
+      userManager.signinSilentCallback().catch((err) => {
+        console.log('Error caught in signinSilentCallback().');
+        console.error(err);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

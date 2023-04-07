@@ -1,0 +1,548 @@
+
+ng build --prod --base-href ./
+ng build --base-href ./
+
+For admin build:
+ng build --prod --base-href ./ --configuration=admin
+
+
+List of api:
+
+	GET Method:
+		http://localhost:8080/roche/dalton/portal/getIndicationGroupList
+		http://localhost:8080/roche/dalton/portal/getIndicationList
+		http://localhost:8080/roche/dalton/portal/getProductList
+		http://localhost:8080/roche/dalton/portal/getClusters
+		http://localhost:8080/roche/dalton/portal/getClusterDetails?clusterId=102
+		http://localhost:8080/roche/dalton/portal/getCorrectionFactor?clusterId=2
+		http://localhost:8080/roche/dalton/portal/getProductIndicationList?clusterId=100
+		http://localhost:8080/roche/dalton/portal/getProductIndication?id=100
+
+	POST Method:
+		http://localhost:8080/roche/dalton/portal/addIndicationGroup
+		http://localhost:8080/roche/dalton/portal/addIndication
+		http://localhost:8080/roche/dalton/portal/addProduct
+		http://localhost:8080/roche/dalton/portal/addCluster
+		http://localhost:8080/roche/dalton/portal/addCorrectionFactor
+		http://localhost:8080/roche/dalton/portal/addProductIndication
+		http://localhost:8080/roche/dalton/portal/addController
+
+	PUT Method:
+		http://localhost:8080/roche/dalton/portal/editCorrectionFactor
+		http://localhost:8080/roche/dalton/portal/editProductIndication
+
+	DELETE Method:
+		http://localhost:8080/roche/dalton/portal/removeProductIndication?id=103
+		http://localhost:8080/roche/dalton/portal/removeProduct
+		http://localhost:8080/roche/dalton/portal/removeIndication
+		http://localhost:8080/roche/dalton/portal/removeIndicationGroup
+		http://localhost:8080/roche/dalton/portal/removeController
+
+
+
+
+
+
+http://localhost:8080/roche/dalton/portal/getIndicationGroupList
+http://localhost:8080/roche/dalton/portal/getIndicationList
+http://localhost:8080/roche/dalton/portal/getProductList
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+http://localhost:8080/roche/dalton/portal/getIndicationGroupList
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 100,
+            "name": "InGroup1",
+            "indList": [
+                {
+                    "id": 100,
+                    "name": "Indication",
+                    "ig_id": 100
+                },
+                {
+                    "id": 101,
+                    "name": "Ind",
+                    "ig_id": 100
+                }
+            ]
+        },
+        {
+            "id": 102,
+            "name": "Indication",
+            "indList": null
+        }
+    ]
+}
+http://localhost:8080/roche/dalton/portal/getIndicationList
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 100,
+            "name": "Indication",
+            "ig_id": 100
+        },
+        {
+            "id": 101,
+            "name": "Ind",
+            "ig_id": 100
+        }
+    ]
+}
+http://localhost:8080/roche/dalton/portal/getProductList
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 100,
+            "name": "Product"
+        },
+        {
+            "id": 101,
+            "name": "Product1"
+        }
+    ]
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+http://localhost:8080/roche/dalton/portal/addIndicationGroup
+Header : authKey
+{"name":"InGroup1"}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "InGroup1 added  successfully"
+}
+..............................................................
+{
+    "responsecode": 202,
+    "status": "SUCCESS",
+    "message": "InGroup1 duplicate Indication-Group name"
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+http://localhost:8080/roche/dalton/portal/addIndication
+Header : authKey
+{"name":"Indication"}
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "Indication-group id data not available."
+}
+..............................................................
+{"name":"Indication","ig_id":100}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Indication added successfully"
+}
+{
+    "responsecode": 202,
+    "status": "SUCCESS",
+    "message": "Indication duplicate Indication name"
+}
+.........................................................
+{"name":"Indication","ig_id":102}
+{
+    "responsecode": 202,
+    "status": "SUCCESS",
+    "message": "Indication duplicate Indication name"
+}
+...........................................................
+{"name":"Ind","ig_id":100}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Ind added successfully"
+}
+----------------------------------------------------------------------------------------------------------------------------
+http://localhost:8080/roche/dalton/portal/addProduct
+{"name":"Product"}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Product added successfully"
+}
+...................................................................
+{
+    "responsecode": 202,
+    "status": "SUCCESS",
+    "message": "Product duplicate Product name"
+}
+...............................................................
+{"name":"Product1"}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Product1 added successfully"
+}
+-------------------------------------------------------------------------------------------------------------------------------
+
+http://localhost:8080/roche/dalton/portal/getClusters
+
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}
+
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 100,
+            "name": "cluster1"
+        }
+    ]
+}
+http://localhost:8080/roche/dalton/portal/addCluster
+  {
+            "name": "cluster1"
+   }
+		
+		{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "cluster1 added  successfully"
+}
+
+{
+    "responsecode": 202,
+    "status": "SUCCESS",
+    "message": "cluster1 duplicate cluster name"
+}
+
+http://localhost:8080/roche/dalton/portal/getClusterDetails?clusterId=102
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}
+http://localhost:8080/roche/dalton/portal/getClusterDetails?clusterId=100
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": {
+        "id": 100,
+        "name": "cluster1"
+    }
+}
+--------------------------------------------------------------------------------------------------
+http://localhost:8080/roche/dalton/portal/getCorrectionFactor?clusterId=2
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}
+http://localhost:8080/roche/dalton/portal/addCorrectionFactor?
+{"cl_id":1,"oop":45 ,"def_echs":35, "cghs":20}
+{
+    "responsecode": 200,
+    "status": "SUCCESS"
+}
+
+http://localhost:8080/roche/dalton/portal/getCorrectionFactor?clusterId=100
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 1,
+            "cl_id": 100,
+            "oop": 45.0,
+            "def_echs": 35.0,
+            "cghs": 20.0,
+            "railways": 0.0,
+            "psu": 0.0,
+            "esi": 0.0,
+            "state_govt": 0.0,
+            "others": 0.0
+        }
+    ]
+}
+http://localhost:8080/roche/dalton/portal/editCorrectionFactor
+{"CL_ID":100,"oop":45 ,"def_echs":99, "cghs":20}
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+}
+http://localhost:8080/roche/dalton/portal/getCorrectionFactor?clusterId=100
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 1,
+            "cl_id": 100,
+            "oop": 45.0,
+            "def_echs": 99.0,
+            "cghs": 20.0,
+            "railways": 0.0,
+            "psu": 0.0,
+            "esi": 0.0,
+            "state_govt": 0.0,
+            "others": 0.0
+        }
+    ]
+}
+
+http://localhost:8080/roche/dalton/portal/getProductIndicationList?clusterId=100
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}
+http://localhost:8080/roche/dalton/portal/addProductIndication
+{"cl_id":1,"name":"ProductIndication","product":{"name":"product","id":100},"indication":{"name":"indication","id":100,"ig_id":100}}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Addedd successfully"
+}
+
+{
+    "responsecode": 202,
+    "status": "SUCCESS",
+    "message": "Duplicate entry"
+}
+
+http://localhost:8080/roche/dalton/portal/getProductIndicationList?clusterId=100
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 1,
+            "name": "ProductIndication",
+            "product": {
+                "id": 100,
+                "name": "Product"
+            },
+            "indication": {
+                "id": 100,
+                "name": "Indication",
+                "ig_id": 100
+            },
+            "ctrls": [],
+            "eligible": 0.0,
+            "contribution": 0.0
+        }
+    ]
+}
+http://localhost:8080/roche/dalton/portal/getProductIndicationList?clusterId=100
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 1,
+            "cl_id": 100,
+            "name": "ProductIndication",
+            "product": {
+                "id": 100,
+                "name": "Product"
+            },
+            "indication": {
+                "id": 100,
+                "name": "Indication",
+                "ig_id": 100
+            },
+            "ctrls": [],
+            "eligible": 0.0,
+            "contribution": 0.0
+        },
+        {
+            "id": 2,
+            "cl_id": 100,
+            "name": "Product1Indication",
+            "product": {
+                "id": 101,
+                "name": "Product1"
+            },
+            "indication": {
+                "id": 100,
+                "name": "Indication",
+                "ig_id": 100
+            },
+            "ctrls": [],
+            "eligible": 0.0,
+            "contribution": 0.0
+        }
+    ]
+}
+http://localhost:8080/roche/dalton/portal/getProductIndication?id=100
+{
+    "responsecode": 202,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}
+http://localhost:8080/roche/dalton/portal/getProductIndication?id=2
+{"name":"ProductIndication","product":{"name":"product1","id":101},"indication":{"name":"indication","id":100,"ig_id":100}}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": {
+        "id": 1,
+        "name": "ProductIndication",
+        "cl_id": 100,
+        "ind_id": 100,
+        "prod_id": 101,
+        "eligible": 0.0,
+        "contribution": 0.0
+    }
+}
+
+http://localhost:8080/roche/dalton/portal/editProductIndication
+{"id":2,"name":"Product1Indication","product":{"name":"product1","id":101},"indication":{"name":"indication","id":100,"ig_id":100}}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Edited successfully"
+}
+{"id":1,"name":"ProductIndication","cl_id": 100,"product":{"name":"product","id":100},"indication":{"name":"indication","id":100,"ig_id":100}}  
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "Existing already"
+}
+
+http://localhost:8080/roche/dalton/portal/removeProductIndication?id=103
+{
+    "responsecode": 202,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}
+
+http://localhost:8080/roche/dalton/portal/removeProductIndication?id=1
+
+http://localhost:8080/roche/dalton/portal/removeProduct
+{
+                "id": 100,
+                "name": "Product"
+}
+			
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Product removed  successfully"
+}
+{
+    "responsecode": 200,
+    "status": "FAILED",
+    "message": "No data found."
+}
+{
+    "responsecode": 200,
+    "status": "FAILED",
+    "message": "Product is in use. Cannot able to delete."
+}
+
+http://localhost:8080/roche/dalton/portal/removeIndication
+{"name":"Ind","id":101}
+{
+    "responsecode": 200,
+    "status": "FAILED",
+    "message": "Indication is in use. Cannot able to delete."
+}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Ind removed  successfully"
+}
+http://localhost:8080/roche/dalton/portal/removeIndicationGroup
+{"name":"Test","id":120}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Test removed successfully"
+}
+{
+    "responsecode": 200,
+    "status": "FAILED",
+    "message": "NO DATA FOUND"
+}
+{
+    "responsecode": 200,
+    "status": "FAILED",
+    "message": "Indication group is in use. Cannot able to delete."
+}
+http://localhost:8080/roche/dalton/portal/addController
+{"name":"controller1","pi_id":22,"input":25,"value":100,"source":"source1"}
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}
+{"name":"controller1","pi_id":21,"formula":"a/b","input":25,"value":100,"source":"source1"}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Saved Successfully"
+}
+{"id":1,"name":"controller1","pi_id":21,"formula":"a+b","input":25,"value":100,"source":"source1"}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Updated Successfully"
+}
+http://localhost:8080/roche/dalton/portal/getProductIndicationList?clusterId=100
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 21,
+            "cl_id": 100,
+            "name": "ProductIndication",
+            "product": {
+                "id": 101,
+                "name": "Product1"
+            },
+            "indication": {
+                "id": 100,
+                "name": "Indication",
+                "ig_id": 100
+            },
+            "ctrls": [
+                {
+                    "id": 1,
+                    "name": "controller1",
+                    "pi_id": 21,
+                    "formula": "a+b",
+                    "input": 25.0,
+                    "value": 100.0,
+                    "source": "source1",
+                    "oid": "c1"
+                }
+            ],
+            "eligible": 0.0,
+            "contribution": 0.0
+        }
+    ]
+}
+http://localhost:8080/roche/dalton/portal/removeController
+{"id":1,"name":"controller1","pi_id":21,"formula":"a/b","input":25,"value":100,"source":"source1"}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Removed Successfully"
+}
+http://localhost:8080/roche/dalton/portal/removeProductIndication?id=21
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "message": "Removed Successfully"
+}
+{
+    "responsecode": 201,
+    "status": "SUCCESS",
+    "message": "NO DATA FOUND"
+}

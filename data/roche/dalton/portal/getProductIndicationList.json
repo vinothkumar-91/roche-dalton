@@ -1,0 +1,598 @@
+
+{
+    "responsecode": 200,
+    "status": "SUCCESS test",
+    "response": [
+        {
+            "id": 42,
+            "cl_id": 21,
+            "name": "HER2 mBC-Perjeta",
+            "product": {
+                "id": 21,
+                "name": "Perjeta",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:28:45.000+00:00"
+            },
+            "indication": {
+                "indicationg": {"id": 23,"name": "Breast"},
+                "id": 23,
+                "name": "HER2 mBC",
+                "ig_id": 21,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:14:12.000+00:00"
+            },
+            "ctrls": [
+                {
+                    "id": 62,
+                    "name": "HER2+ Stage I (9% of all HER 2)",
+                    "pi_id": 42,
+                    "input": 0.09,
+                    "value": 0.02,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T08:32:54.000+00:00",
+                    "oid": "c1"
+                },
+                {
+                    "id": 61,
+                    "name": "Total Breast Cancer patients   (14.4 per 100,000)",
+                    "pi_id": 42,
+                    "input": 0.0,
+                    "value": 1.0,
+                    "source": "Breast cancer India Prevalence and Incidence dat.pdf",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T08:32:27.000+00:00",
+                    "oid": "c2"
+                },
+                {
+                    "id": 63,
+                    "name": "HER2+ Stage II (35% of all HER 2)",
+                    "pi_id": 42,
+                    "input": 0.35,
+                    "value": 0.08,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T08:33:13.000+00:00",
+                    "oid": "c3"
+                },
+                {
+                    "id": 64,
+                    "name": "HER2+ Stage III  (38% of all HER 2)",
+                    "pi_id": 42,
+                    "input": 0.38,
+                    "value": 0.09,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T08:33:37.000+00:00",
+                    "oid": "c4"
+                },
+                {
+                    "id": 65,
+                    "name": "HER2+ Stage IV (18% of all HER 2)",
+                    "pi_id": 42,
+                    "input": 0.18,
+                    "value": 0.04,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T08:33:48.000+00:00",
+                    "oid": "c5"
+                },
+                {
+                    "id": 66,
+                    "name": "stage IV progressed from eBC (36%)",
+                    "pi_id": 42,
+                    "input": 0.36,
+                    "value": 0.09,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T08:33:58.000+00:00",
+                    "oid": "c6"
+                },
+                {
+                    "id": 67,
+                    "name": "1L MBC patients eligible for Perjeta  (% of all BrCa)",
+                    "pi_id": 42,
+                    "input": 0.0,
+                    "value": 0.13,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T08:34:12.000+00:00",
+                    "oid": "c7"
+                }
+            ],
+            "eligible": 0.14,
+            "contribution": 0.5
+        },
+        {
+            "id": 21,
+            "cl_id": 21,
+            "name": "HER2 Neo Adj-Perjeta",
+            "product": {
+                "id": 21,
+                "name": "Perjeta",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:28:45.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Breast"},
+                "id": 35,
+                "name": "HER2 Neo Adj",
+                "ig_id": 21,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:53:38.000+00:00"
+            },
+            "ctrls": [
+                {
+                    "id": 23,
+                    "name": "HER2+ Stage I (9% of all HER 2)",
+                    "pi_id": 21,
+                    "input": 0.09,
+                    "value": 0.02,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-11T19:12:13.000+00:00",
+                    "modified_by": "userId",
+                    "modified_on": "2023-03-12T02:54:19.000+00:00",
+                    "oid": "c8"
+                },
+                {
+                    "id": 24,
+                    "name": "HER2+ Stage II (35% of all HER 2)",
+                    "pi_id": 21,
+                    "input": 0.35,
+                    "value": 0.87,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-11T19:12:32.000+00:00",
+                    "modified_by": "userId",
+                    "modified_on": "2023-03-12T02:55:31.000+00:00",
+                    "oid": "c9"
+                },
+                {
+                    "id": 21,
+                    "name": "Total Breast Cancer patients  14.4 per 100000",
+                    "pi_id": 21,
+                    "input": 0.0,
+                    "value": 1.0,
+                    "source": "Breast cancer India Prevalence and Incidence dat.pdf",
+                    "created_by": "userId",
+                    "created_on": "2023-03-11T19:08:58.000+00:00",
+                    "oid": "c10"
+                },
+                {
+                    "id": 22,
+                    "name": "HER2+ Breast Cancer patients (25%)",
+                    "pi_id": 21,
+                    "input": 0.25,
+                    "value": 0.25,
+                    "source": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4991144/?report=printable",
+                    "created_by": "userId",
+                    "created_on": "2023-03-11T19:11:58.000+00:00",
+                    "modified_by": "userId",
+                    "modified_on": "2023-03-12T02:57:21.000+00:00",
+                    "oid": "c11"
+                },
+                {
+                    "id": 26,
+                    "name": "HER2+ Stage IV (18% of all HER 2)",
+                    "pi_id": 21,
+                    "input": 0.18,
+                    "value": 0.04,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-11T19:12:58.000+00:00",
+                    "modified_by": "userId",
+                    "modified_on": "2023-03-12T02:58:52.000+00:00",
+                    "oid": "c12"
+                },
+                {
+                    "id": 27,
+                    "name": "Neo Adjuvant patients eligible for Perjeta (% of all BrCa)",
+                    "pi_id": 21,
+                    "input": 0.0,
+                    "value": 0.18,
+                    "created_by": "userId",
+                    "created_on": "2023-03-11T19:13:16.000+00:00",
+                    "oid": "c13"
+                },
+                {
+                    "id": 41,
+                    "name": "HER2+ Stage III  (38% of all HER 2)",
+                    "pi_id": 21,
+                    "input": 0.38,
+                    "value": 0.09,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T05:33:15.000+00:00",
+                    "oid": "c14"
+                }
+            ],
+            "eligible": 0.18,
+            "contribution": 1.0
+        },
+        {
+            "id": 46,
+            "cl_id": 21,
+            "name": "TNBC-Tecentriq",
+            "product": {
+                "id": 24,
+                "name": "Tecentriq",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:11.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Breast"},
+                "id": 25,
+                "name": "TNBC",
+                "ig_id": 21,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:14:38.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.0,
+            "contribution": 0.0
+        },
+        {
+            "id": 48,
+            "cl_id": 21,
+            "name": "2L NSCLC-Tecentriq",
+            "product": {
+                "id": 24,
+                "name": "Tecentriq",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:11.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Lung"},
+                "id": 27,
+                "name": "2L NSCLC",
+                "ig_id": 26,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:15:26.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.26,
+            "contribution": 1.0
+        },
+        {
+            "id": 44,
+            "cl_id": 21,
+            "name": "HER2 eBC-Kadcyla",
+            "product": {
+                "id": 27,
+                "name": "Kadcyla",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:57:13.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Breast"},
+                "id": 24,
+                "name": "HER2 eBC",
+                "ig_id": 21,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:14:26.000+00:00"
+            },
+            "ctrls": [
+                {
+                    "id": 75,
+                    "name": "Total Breast Cancer patients   (14.4 per 100,000)",
+                    "pi_id": 44,
+                    "input": 0.0,
+                    "value": 1.0,
+                    "source": "Breast cancer India Prevalence and Incidence dat.pdf",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:14:07.000+00:00",
+                    "oid": "c15"
+                },
+                {
+                    "id": 76,
+                    "name": "HER2+ Breast Cancer patients (25% of all BrCa)",
+                    "pi_id": 44,
+                    "input": 0.25,
+                    "value": 0.25,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:14:29.000+00:00",
+                    "oid": "c16"
+                },
+                {
+                    "id": 77,
+                    "name": "HER2+ Stage II (35% of all HER 2)",
+                    "pi_id": 44,
+                    "input": 0.35,
+                    "value": 0.08,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:15:11.000+00:00",
+                    "oid": "c17"
+                },
+                {
+                    "id": 78,
+                    "name": "HER2+ Stage III  (38% of all HER 2)",
+                    "pi_id": 44,
+                    "input": 0.38,
+                    "value": 0.09,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:15:21.000+00:00",
+                    "oid": "c18"
+                },
+                {
+                    "id": 79,
+                    "name": "HER2+ Stage IV (18% of all HER 2)",
+                    "pi_id": 44,
+                    "input": 0.18,
+                    "value": 0.04,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:15:33.000+00:00",
+                    "oid": "c19"
+                }
+            ],
+            "eligible": 0.09,
+            "contribution": 1.0
+        },
+        {
+            "id": 45,
+            "cl_id": 21,
+            "name": "HER2 mBC-Kadcyla",
+            "product": {
+                "id": 27,
+                "name": "Kadcyla",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:57:13.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Breast"},
+                "id": 23,
+                "name": "HER2 mBC",
+                "ig_id": 21,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:14:12.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.14,
+            "contribution": 0.5
+        },
+        {
+            "id": 47,
+            "cl_id": 21,
+            "name": "1L NSCLC-Tecentriq",
+            "product": {
+                "id": 24,
+                "name": "Tecentriq",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:11.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Lung"},
+                "id": 26,
+                "name": "1L NSCLC",
+                "ig_id": 26,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:15:17.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.44,
+            "contribution": 1.0
+        },
+        {
+            "id": 49,
+            "cl_id": 21,
+            "name": "SCLC-Tecentriq",
+            "product": {
+                "id": 24,
+                "name": "Tecentriq",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:11.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Lung"},
+                "id": 28,
+                "name": "SCLC",
+                "ig_id": 26,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:15:40.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.07,
+            "contribution": 1.0
+        },
+        {
+            "id": 50,
+            "cl_id": 21,
+            "name": "HCC-Tecentriq",
+            "product": {
+                "id": 24,
+                "name": "Tecentriq",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:11.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "GI"},
+                "id": 31,
+                "name": "HCC",
+                "ig_id": 23,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:16:19.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.46,
+            "contribution": 1.0
+        },
+        {
+            "id": 52,
+            "cl_id": 21,
+            "name": "1L ALK+LC-Alecensa",
+            "product": {
+                "id": 23,
+                "name": "Alecensa",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:04.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Lung"},
+                "id": 29,
+                "name": "1L ALK+LC",
+                "ig_id": 26,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:15:50.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.04,
+            "contribution": 1.0
+        },
+        {
+            "id": 53,
+            "cl_id": 21,
+            "name": "2L ALK+LC-Alecensa",
+            "product": {
+                "id": 23,
+                "name": "Alecensa",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:04.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Lung"},
+                "id": 30,
+                "name": "2L ALK+LC",
+                "ig_id": 26,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:16:01.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.02,
+            "contribution": 1.0
+        },
+        {
+            "id": 54,
+            "cl_id": 21,
+            "name": "FL-Gazyva",
+            "product": {
+                "id": 26,
+                "name": "Gazyva",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:26.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Hematology"},
+                "id": 33,
+                "name": "FL",
+                "ig_id": 25,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:17:00.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.0,
+            "contribution": 1.0
+        },
+        {
+            "id": 55,
+            "cl_id": 21,
+            "name": "CLL-Gazyva",
+            "product": {
+                "id": 26,
+                "name": "Gazyva",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:29:26.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Hematology"},
+                "id": 34,
+                "name": "CLL",
+                "ig_id": 25,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:17:13.000+00:00"
+            },
+            "ctrls": [],
+            "eligible": 0.0,
+            "contribution": 1.0
+        },
+        {
+            "id": 56,
+            "cl_id": 21,
+            "name": "HER2 Adj-Perjeta",
+            "product": {
+                "id": 21,
+                "name": "Perjeta",
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:28:45.000+00:00"
+            },
+            "indication": { "indicationg": {"id": 23,"name": "Breast"},
+                "id": 22,
+                "name": "HER Adj",
+                "ig_id": 21,
+                "created_by": "userId",
+                "created_on": "2023-03-11T10:13:50.000+00:00"
+            },
+            "ctrls": [
+                {
+                    "id": 68,
+                    "name": "Total Breast Cancer patients   (14.4 per 100,000)",
+                    "pi_id": 56,
+                    "input": 0.0,
+                    "value": 1.0,
+                    "source": "Breast cancer India Prevalence and Incidence dat.pdf",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:03:25.000+00:00",
+                    "oid": "c20"
+                },
+                {
+                    "id": 69,
+                    "name": "HER2+ Breast Cancer patients (25% of all BrCa)",
+                    "pi_id": 56,
+                    "input": 0.25,
+                    "value": 0.25,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:03:37.000+00:00",
+                    "oid": "c21"
+                },
+                {
+                    "id": 70,
+                    "name": "HER2+ Stage I (9% of all HER 2)",
+                    "pi_id": 56,
+                    "input": 0.09,
+                    "value": 0.02,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:03:52.000+00:00",
+                    "oid": "c22"
+                },
+                {
+                    "id": 71,
+                    "name": "HER2+ Stage II (35% of all HER 2)",
+                    "pi_id": 56,
+                    "input": 0.35,
+                    "value": 0.08,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:04:16.000+00:00",
+                    "oid": "c23"
+                },
+                {
+                    "id": 72,
+                    "name": "HER2+ Stage III  (38% of all HER 2)",
+                    "pi_id": 56,
+                    "input": 0.38,
+                    "value": 0.09,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:04:48.000+00:00",
+                    "oid": "c24"
+                },
+                {
+                    "id": 73,
+                    "name": "HER2+ Stage IV (18% of all HER 2)",
+                    "pi_id": 56,
+                    "input": 0.18,
+                    "value": 0.04,
+                    "source": "https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data",
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:05:05.000+00:00",
+                    "oid": "c25"
+                },
+                {
+                    "id": 74,
+                    "name": "Adjuvant Eligible Patients for Perjeta (50% of Stage II & III) (36 of all HER 2)",
+                    "pi_id": 56,
+                    "input": 0.0,
+                    "value": 0.09,
+                    "created_by": "userId",
+                    "created_on": "2023-03-12T09:05:26.000+00:00",
+                    "oid": "c26"
+                }
+            ],
+            "eligible": 0.09,
+            "contribution": 1.0
+        }
+    ]
+}

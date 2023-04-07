@@ -1,0 +1,106 @@
+<app-header></app-header>
+<mat-drawer-container class="main-wrapper-container">
+    <mat-drawer #sidenav mode="side" opened>
+        <app-left-nav></app-left-nav>
+    </mat-drawer>
+    <mat-drawer-content class="bg-gray">
+
+        <div class="fw-100">
+            <div class="card fw-100">
+                <h6 class="title-inner">User List</h6>
+                <div class="fw-100">
+
+                    <div class="table-header-area mt-1">
+                        <div class="tablesearch float-start">
+                            <mat-form-field appearance="fill">
+                                <img src="./assets/image/search.svg" height="36" alt="">
+                                <input type="text" class="table-search" placeholder="Type keywords ..." matInput
+                                    #searchContainer autocomplete="off" [(ngModel)]="filter" #ctrl="ngModel"
+                                    (keyup)="applyFilter(searchContainer.value)" />
+                            </mat-form-field>
+                        </div>
+                        <div class="float-end">
+                            <button type="button" class="btn btn-outline-dark btn-sm mt-2 me-2"  (click)="this.popuptype = 'bulkupload'"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="18" height="18"><path fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M86 144V25M45.74 59L86 24l40.26 35"/><path fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M14 128v28a12 12 0 0 0 12 12h120a12 12 0 0 0 12-12v-28"/></svg> Bulk upload</button>
+
+                        </div>
+                    </div>
+
+                    <div class="table-responsive fw-100">
+                        <mat-table matTableExporter [dataSource]="data_dataSource" matSort #dataTable
+                            #exporter="matTableExporter">
+                            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns_order">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
+                                <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                            </ng-container>
+                            <mat-header-row *matHeaderRowDef="displayedColumns_order"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns_order;"
+                                (click)="currentObj=row;detailView = true;">
+                            </mat-row>
+                        </mat-table>
+
+                        <table class="mat-table">
+                            <tr class="mat-row" *ngIf="apiCall">
+                                <td class="mat-cell" style="text-align: center;"
+                                    [attr.colspan]="displayedColumns_order.length">
+                                    <img src="./assets/image/loader-animated.gif" style="height: 60px;">
+                                </td>
+                            </tr>
+                            <tr class="mat-row"
+                                *ngIf="(!data_dataSource.data.length || !data_dataSource.filteredData.length) && !apiCall">
+                                <td class="mat-cell" style="text-align: center;"
+                                    [attr.colspan]="displayedColumns_order.length">
+                                    No Records Found! <span
+                                    *ngIf="!data_dataSource.filteredData.length && data_dataSource.data.length">(Search
+                                        Result)</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <mat-paginator #orderMatPaginator showFirstLastButtons pageSize="20" [pageSizeOptions]="[5, 10,20,30]"></mat-paginator>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </mat-drawer-content>
+</mat-drawer-container>
+<div class="modal show confirm-popup" tabindex="-1" role="dialog" aria-labelledby="" *ngIf="popuptype == 'bulkupload'">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content p-4">
+            <h4 class="fw-100 mt-2 mb-4 text-center">Users Bulk upload</h4>
+            <form class='single-view'>
+                <div class="f-feilds browse-field" *ngIf="isExcelValid">
+                        <label >Upload Excel*</label>
+                        <label class="file-upload" [ngClass]="{'disabled':apiCall}"><input  multiple=""
+                            required enctype="multipart/form-data" (change)="uploadData($event)"
+                            type="file" class="form-control" name="document"  min="0"/></label>
+                            <div class="fw-100">
+                                <span class="float-end action-link"  (click)="sampleExcel()">Download Sample (xls)</span>
+                            </div>
+                </div>
+
+                <div class="text-danger" *ngIf="!isExcelValid">
+                    Error occur in row no. - <mark>{{invalidRow | json}}</mark>.
+                </div>
+
+                <div class="fw-100 p-2 text-center mt-2">
+                    <ng-container *ngIf="isExcelValid">
+                        <button class="btn btn-secondary my-md mr-3"  (click)="this.popuptype = ''">Cancel</button>
+                        <button class="btn btn-success my-md mr-3"  (click)="this.popuptype = ''" >Upload</button>
+                    </ng-container>
+
+                    <ng-container *ngIf="!isExcelValid">
+                        <button class="btn btn-secondary my-md mr-3"  (click)="this.popuptype = '';this.isExcelValid = true" >Ok</button>
+                    </ng-container>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

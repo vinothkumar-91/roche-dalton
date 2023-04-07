@@ -1,0 +1,7 @@
+
+    <div class="d-flex left-nav-p" routerLinkActive="active" [routerLink]="obj.routerLink"  [attr.data-page-active]="obj.dataPageActive" *ngFor="let obj of menuList;">
+        <mat-nav-list class="tp-section">
+            <img [src]="obj.src" alt="">
+            <span class="alignTop">{{obj.name}} </span>
+        </mat-nav-list>
+    </div>

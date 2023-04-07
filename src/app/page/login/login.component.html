@@ -1,0 +1,98 @@
+<!-- <div class="body-container-wrapper gradient-l-r"> -->
+
+
+    <div class="login-container">
+        <div class="left" style="background:url(./assets/image/bg/Roche_35873.png)">
+
+          <div class="mx-auto w-full max-w-sm lg:w-96" style="margin:0 auto;max-width: 24rem;width: 24rem;">
+            <div class="">
+                <img class="" src="./assets/image/roche_logo.svg" alt="" width="125">
+              <p class="mt-2 text-sm text-center text-gray-600"
+                style="margin-top:2px;text-align: center;font-size: 12px;color: cornflowerblue;">
+                <!-- <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500" >Demo</a> -->
+              </p>
+            </div>
+            <h2 class="welcome-msg">Welcome to <br>Roche Data Entry Portal</h2>
+            <div class="mt-8 text-center">
+
+              <div class="sso-button">
+                <div>
+                  <a  (click)="login()" class="sso-button-link">
+                    <span class="self-center">Sign in via SSO (for Roche employees)</span>
+                  </a>
+                </div>
+
+              </div>
+   <!--
+              <div class="relative mt-5">
+                <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                  <div class="w-full bg-line"></div>
+                </div>
+                 <div class="relative flex justify-center text-sm">
+                  <span class="bg-white px-2 text-gray-500">Or continue with</span>
+                </div>
+              </div>
+
+          <div class="">
+                <div class="loginpage l-form" *ngIf="!showSaveMessage">
+                  <form #loginForm="ngForm" name="form" (ngSubmit)="loginForm.valid && login()" autocomplete="off"
+                    class="form form-login full-form text-start" novalidate>
+                    <div class="loginform">
+                      <div class="f-row">
+                        <div class="f-feilds">
+                          <label>Email*</label>
+                          <input email type="email" name="email" class="form-control" required
+                            [(ngModel)]="loginDetails.email" #email="ngModel" placeholder="Enter Email" />
+                          <div class="fw-100"
+                            *ngIf="(email.invalid && (email.dirty || email.touched)) || (loginForm.submitted && email.invalid)">
+                            <small class="msg error" *ngIf="email.errors?.['required']">Email is required.</small>
+                            <small class="msg error" *ngIf="email.invalid && loginDetails.email!=''">Please enter the valid
+                              email.</small>
+                          </div>
+                        </div>
+                        <div class="f-feilds password-fld">
+                          <label>Password* </label>
+                          <input [type]="hide ? 'password' : 'text'" class="form-control" required minlength="6"
+                            name="password" [(ngModel)]="loginDetails.password" #password="ngModel"
+                            placeholder="Enter Password">
+
+                          <mat-icon matSuffix (click)="hide = !hide" *ngIf="!(password.errors?.['required'])" color="gray">
+                            {{hide ? 'visibility_off' : 'visibility'}}
+                          </mat-icon>
+
+                          <div class="fw-100"
+                            *ngIf="(password.invalid && (password.dirty || password.touched)) || (loginForm.submitted && password.invalid)">
+                            <small class="msg error" *ngIf="password.errors?.['required']">Password is required.</small>
+                            <small class="msg error" *ngIf="password.errors?.['minlength']">Please enter the valid
+                              password</small>
+                          </div>
+
+
+                        </div>
+                      </div>
+
+
+                      <div class="f-row">
+                        <div class="f-feilds h-auto">
+                          <button type="submit" class="submitform"
+                            [ngClass]="{'forminvalid':(!loginForm.valid || apiCall)}">Login</button>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </form>
+                </div>
+
+              </div> -->
+
+            </div>
+          </div>
+        </div>
+        <div class="right relative hidden w-0 flex-1 lg:block">
+          <img class="" src="./assets/image/bg/Roche_35873.png" alt="">
+        </div>
+      </div>
+
+      <!-- </div> -->
+    <!-- <button (click)="login()" class="btn btn-default">Login</button> -->

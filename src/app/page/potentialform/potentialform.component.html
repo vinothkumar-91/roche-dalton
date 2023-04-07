@@ -1,0 +1,192 @@
+<form class="fw-100  slider-l" #form="ngForm" (ngSubmit)="form.valid && onSubmit()" autocomplete="off">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h6 class="modal-title">
+                <ng-container *ngIf="addPopup; else editpopup">Add </ng-container>
+                <ng-template #editpopup>Edit </ng-template>
+                Entry
+            </h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cClosepopup()">
+                <span aria-hidden="true" class="font-initial">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="fw-100">
+
+                <div class="fw-100 pop-detail-view">
+                    <ul class="fw-100  mb-3" *ngFor="let l of correctionFactor;let i=index">
+                        <li class="lbl-head">
+                            <div>{{l.name}}</div>
+                        </li>
+                        <li [class]="l.class" *ngFor="let l2 of l.fields;let i2=index">
+                            <div class="lbl">{{l2.field}}</div>
+                            <div class="value"> {{l2.value}} </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="f-row form-row formgroup basic-info">
+                    <strong class="head pl-2">Basic Details</strong>
+                    <div class="f-feilds">
+                        <label>Select Territory*</label>
+                        <div class="form-control-layer fw-100" [ngClass]="{'empty':!pfrom.ppInput.trId}">
+                            <ngx-select [allowClear]="true" [items]="territoryItems" optionValueField="name"
+                                optionTextField="name" placeholder="Select Territory" required="" name="trId"
+                                [(ngModel)]="pfrom.ppInput.trId">
+                                <ng-template ngx-select-option ngx-select-option-selected let-option let-text="text">
+                                    <span [innerHtml]="text"></span>
+                                </ng-template>
+                                <ng-template ngx-select-option-not-found let-input>"{{input}}" not found</ng-template>
+                            </ngx-select>
+                            <small class="msg error" *ngIf="!form.submitted && !pfrom.ppInput.trId">Please select
+                                Territory</small>
+                        </div>
+                        <small class="msg error" *ngIf="(form.submitted && !pfrom.ppInput.trId)">Please select
+                            Territory</small>
+                    </div>
+
+                    <div class="f-feilds">
+                        <label>Select Account*</label>
+                        <div class="form-control-layer fw-100" [ngClass]="{'empty':!pfrom.ppInput.accounthcoId}">
+                            <ngx-select [allowClear]="true" [items]="accountItems" optionValueField="id"
+                                optionTextField="name" placeholder="Select Account" required="" name="accounthcoId"
+                                [(ngModel)]="pfrom.ppInput.accounthcoId">
+                                <ng-template ngx-select-option ngx-select-option-selected let-option let-text="text">
+                                    <div><span [innerHtml]="text"></span>
+                                    </div>
+                                </ng-template>
+                                <ng-template ngx-select-option-not-found let-input>"{{input}}" not found</ng-template>
+                            </ngx-select>
+                            <small class="msg error" *ngIf="!form.submitted && !pfrom.ppInput.accounthcoId">Please
+                                select Account</small>
+                        </div>
+                        <small class="msg error" *ngIf="(form.submitted && !pfrom.ppInput.accounthcoId)">Please select
+                            Account</small>
+                    </div>
+                </div>
+                <div class="f-row form-row formgroup" [class]="l.class" *ngFor="let l of basciFormObj;let i=index">
+                    <strong class="head my-md pl-2" *ngIf="l.name">{{l.name}}</strong>
+                    <div class="f-feilds" *ngFor="let l2 of l.fields;let i2=index">
+                        <label>{{l2.field}}*</label>
+                        <input type="number" class="form-control" [name]="l.id+l2.id"
+                            [(ngModel)]="pfrom.ppInput[(l.id+l2.id)]" #basic="ngModel" min="0" max="100" required
+                            (keyup)="checkCompare()" [disabled]="l2.disable">
+                        <div class="fw-100"
+                            *ngIf="(basic.invalid && (basic.dirty || basic.touched)) || (form.submitted && basic.invalid)">
+                            <small class="msg error" *ngIf="basic.errors?.['required']">Required</small>
+                            <small class="msg error"
+                                *ngIf="!basic.errors?.['required'] && basic.invalid">Invalid</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="f-row form-row formgroup other-info" *ngIf="formObj.length">
+                    <strong class="head my-md pl-2">% Split of patients seen</strong>
+                    <div class="f-feilds" *ngFor="let l2 of formObj;let i2=index">
+                        <label>{{l2.field}}*</label>
+                        <input type="number" class="form-control" [name]="l2.field"
+                            [(ngModel)]="pfrom.ppInput.sops[l2.field]" #sops="ngModel" min="0" max="100" required
+                            (keyup)="checkCompare()">
+
+                        <div class="fw-100"
+                            *ngIf="(sops.invalid && (sops.dirty || sops.touched)) || (form.submitted && sops.invalid)">
+                            <small class="msg error" *ngIf="sops.errors?.['required']">Required</small>
+                            <small class="msg error" *ngIf="!sops.errors?.['required'] && sops.invalid">Invalid</small>
+                        </div>
+                    </div>
+                </div>
+            <ng-container *ngIf="form.valid">
+                <div class="fw-100 pop-detail-view">
+                    <ul class="fw-100  mb-3">
+                        <li class="lbl-head">
+                            <div>{{psm.name}}</div>
+                        </li>
+                        <li [class]="psm.class" *ngFor="let l2 of psm.fields;let i2=index">
+                            <div class="lbl">{{l2.field}}</div>
+                            <div class="value"> {{l2.value}} </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fw-100 pop-detail-view">
+                    <ul class="fw-100  mb-3">
+                        <li class="lbl-head">
+                            <div>{{psosp.name}}</div>
+                        </li>
+                        <li [class]="psosp.class" *ngFor="let l2 of psosp.map | keyvalue;let i2=index">
+                            <div class="lbl">{{l2.key}}</div>
+                            <div class="value"> {{l2.value}} </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fw-100 pop-detail-view">
+                    <strong class="head pl-0">Eligible & Contribution</strong>
+                    <ul class="fw-100  mb-3" *ngFor="let l of indIndGroupEligible | keyvalue;let i=index">
+                        <li class="lbl-head text-black">
+                            <div>{{l.key}}</div>
+                        </li>
+                        <li *ngFor="let l2 of l.value | keyvalue;let i2=index">
+                            <div class="lbl">{{l2.key}}</div>
+                            <div class="value">
+                                <ng-container *ngFor="let l3 of l2.value | keyvalue;let i3=index">
+                                    <ng-container *ngIf="l3.key == 'eligible'">E : {{l3.value}}</ng-container>
+                                    <ng-container *ngIf="l3.key != 'eligible'">C : {{l3.value}}%</ng-container>
+                                </ng-container>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fw-100 pop-detail-view">
+                    <strong class="head pl-0">Split of patients/month : {{isops.map['total']}}</strong>
+                    <ul class="fw-100  mb-3" *ngFor="let l of isops.arr;let i=index">
+                        <li class="lbl-head text-black"><small>{{l.indGrp}}</small></li>
+                        <li *ngFor="let l2 of l.indication;let i2=index">
+                            <div class="lbl">{{l2.name}}</div>
+                            <div class="value"> {{((l2.isops).toFixed(2))}} </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fw-100 text-center">
+                        <div class="table-responsive">
+                            <table class="mat-table table table-bordered table-sm text-start mb-3">
+                                <tr class="mat-row">
+                                    <th class="mat-header-cell"></th>
+                                    <th class="mat-header-cell"
+                                        *ngFor='let l of ["OOP","Defence & ECHS","CGHS","Railways","PSU","ESI","State Govt"];let i=index'>
+                                        {{l}}</th>
+                                </tr>
+                                <tr class="mat-row" *ngFor='let l of ["epsof","apsof","pcapsof"];let i=index'>
+                                    <td class="mat-cell">
+                                        <ng-container *ngIf="l == 'val'">Input Value</ng-container>
+                                        <ng-container *ngIf="l == 'cf'">Correction Factor</ng-container>
+                                        <ng-container *ngIf="l == 'epsof'">Eligible patients by SoF</ng-container>
+                                        <ng-container *ngIf="l == 'apsof'">Affording patients by SoF</ng-container>
+                                        <ng-container *ngIf="l == 'pcapsof'">Affording patients by SoF - Post correction
+                                        </ng-container>
+                                    </td>
+                                    <td class="mat-cell text-end" *ngFor='let c of ["oop","def","cghs","railways","psu","esi","stGvt"];let j=index'>
+                                        <ng-container *ngIf="ptype.map[c][l]">{{(ptype.map[c][l]).toFixed(2)}}</ng-container>
+                                        <ng-container *ngIf="!ptype.map[c][l]">0</ng-container>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                </div>
+            </ng-container>
+            </div>
+
+
+
+            <div class="fw-100" style="background: #f9fcff" *ngIf="form.valid">
+                <div class="preview-chart fw-100 text-center mt-5">
+                    <canvas baseChart [datasets]="dbarChartData" [labels]="dbarChartLabels" [options]="dbarChartOptions"
+                        [colors]="dbarChartColors" [legend]="false" [chartType]="dbarChartType"
+                        style="height:150px"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cClosepopup()">Close</button>
+            <button class="btn btn-success" [ngClass]="{'forminvalid':!form.valid}"
+                type="submit"><span>Save</span></button>
+        </div>
+
+    </div>
+</form>

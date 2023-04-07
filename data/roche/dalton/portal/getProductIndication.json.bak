@@ -1,0 +1,14 @@
+{"name":"ProductIndication","product":{"name":"product1","id":101},"indication":{"name":"indication","id":100,"ig_id":100}}
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": {
+        "id": 1,
+        "name": "ProductIndication",
+        "cl_id": 100,
+        "ind_id": 100,
+        "prod_id": 101,
+        "eligible": 0.0,
+        "contribution": 0.0
+    }
+}

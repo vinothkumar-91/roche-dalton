@@ -1,0 +1,159 @@
+{
+    "responsecode":200,"message":"Successfully retrive setting",
+"data":{
+    "setting":{
+        "Perjeta":{
+            "HER2 Neo Adj":[
+                {"field":"Total Breast Cancer patients  14.4 per 100000","percentage":"100.00","source":"Breast cancer India Prevalence and Incidence dat.pdf"},
+                {"field":"HER2+ Breast Cancer patients (25%)","percentage":"25.00%","source":"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4991144/?report=printable"},
+                {"field":"HER2+ Stage I (9% of all HER 2)","percentage":"2.25%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage II (35% of all HER 2)","percentage":"8.75%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage III  (38% of all HER 2)","percentage":"9.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage IV (18% of all HER 2)","percentage":"4.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"Neo Adjuvant patients eligible for Perjeta (% of all BrCa)","percentage":"18.25%","source":""}
+            ],
+            "HER2 mBC":[
+                {"field":"Total Breast Cancer patients (14.4 per 100,000)","percentage":"100.00%","source":"Breast cancer India Prevalence and Incidence dat.pdf"},
+                {"field":"HER2+ Breast Cancer patients (25% of all BrCa)","percentage":"25.00%","source":"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4991144/?report=printable"},
+                {"field":"HER2+ Stage I (9% of all HER 2)","percentage":"2.25%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage II (35% of all HER 2)","percentage":"8.75%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage III  (38% of all HER 2)","percentage":"9.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage IV (18% of all HER 2)","percentage":"4.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"stage IV progressed from eBC (36%)","percentage":"9.1%","source":"67% percent people getting treated are progessing from eBC"},
+                {"field":"1L MBC patients eligible for Perjeta (% of all BrCa)","percentage":"13.64%","source":""}
+            ],
+            "HER2 Adj":[
+                {"field":"Total Breast Cancer patients (14.4 per 100,000)","percentage":"100.00%","source":"Breast cancer India Prevalence and Incidence dat.pdf"},
+                {"field":"HER2+ Breast Cancer patients (25% of all BrCa)","percentage":"25.00%","source":"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4991144/?report=printable"},
+                {"field":"HER2+ Stage I (9% of all HER 2)","percentage":"2.25%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage II (35% of all HER 2)","percentage":"8.75%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage III  (38% of all HER 2)","percentage":"9.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage IV (18% of all HER 2)","percentage":"4.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"Adjuvant Eligible Patients for Perjeta (50% of Stage II & III) (36 of all HER 2)","percentage":"9.13%","source":""}
+            ]
+        },
+        "Kadcyla":{
+            "HER2 eBC":[
+                {"field":"Total Breast Cancer patients (14.4 per 100,000)","percentage":"100.00%","source":""},
+                {"field":"HER2+ Breast Cancer patients (25% of all BrCa)","percentage":"25.00%","source":"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4991144/?report=printable"},
+                {"field":"HER2+ Stage I (9% of all HER 2)","percentage":"2.25%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage II (35% of all HER 2)","percentage":"8.75%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage III  (38% of all HER 2)","percentage":"9.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage IV (18% of all HER 2)","percentage":"4.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"NeoAdjuvant treated patients without PCR (12% of stage II and III) (36% of HER 2)","percentage":"9.13%","source":"18% of patients eligible for neo-adjuvant--> only  of which 50% will not achieve PCR which is 9%"},
+                {"field":"Adjuvant patients eligible for Kadcyla (% of all BrCa)","percentage":"9.13%","source":""}
+
+            ],
+            "HER2 mBC":[
+                {"field":"Total Breast Cancer patients (14.4 per 100,000)","percentage":"100.00%","source":""},
+                {"field":"HER2+ Breast Cancer patients (25% of all BrCa)","percentage":"25.00%","source":"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4991144/?report=printable"},
+                {"field":"HER2+ Stage I (9% of all HER 2)","percentage":"2.25%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage II (35% of all HER 2)","percentage":"8.75%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage III  (38% of all HER 2)","percentage":"9.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"HER2+ Stage IV (18% of all HER 2)","percentage":"4.50%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"2L +MBC patients eligible for Kadcyla (% of all BrCa)","percentage":"13.63%","source":"IPSOS 2019 Same as 1L as per IPSOS MAT 2019 Slide 37.There is equal number of patients who take treatment in 1L and 2L and above"}
+
+            ]
+        },
+        "Alecensa":{
+            "common":[
+                {"field":"Total Lung Cancer patients (5.8 per 100,000)","percentage":"100.00%","source":"Globocan 2018 - https://gco.iarc.fr/today/data/factsheets/populations/356-india-fact-sheets.pdf"},
+                {"field":"NSCLC patients (88% of all LuCa)","percentage":"88.00%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Non Squamous NSCLC (75% of all NSCLC)","percentage":"66.00%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Stage I-II early ns NSCLC (33% of ns NSCLC)","percentage":"21.78%","source":"Prevalence of type and etiology of lung cancer among the patients presented to a tertiary care hospital at central Kerala: a descriptive study"},
+                {"field":"Metastatic (Stage III-IV) ns NSCLC - De Novo (67% of ns NSCLC)","percentage":"44.22%","source":"Prevalence of type and etiology of lung cancer among the patients presented to a tertiary care hospital at central Kerala: a descriptive study"},
+                {"field":"Metastatic (Stage III-IV) ns NSCLC from Stage I-II (75% of ns NSCLC) last two years prevalent Stage I-II Pool","percentage":"16.34%","source":"This row is for  % of stage 1/2 patients that will progress to stage 3/4 (Assumption based on internal estimate  75% of all stage 1/2 patients will progress to stage 3/4)"},
+                {"field":"Total metastatic (Stage III-IV) Non Squamous NSCLC","percentage":"60.56%","source":"Sum of row 28 & 29 divide by row 26 ( Total patient population of new diagnosis plus old patient pool)"},
+                {"field":"Incidence (no EGFR / ALK ns NSCLC) (63% of mns NSCLC) (metastatic Wild Type)","percentage":"38.15%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Incidence EGFR+ mns NSCLC (30% of mns NSCLC)","percentage":"18.17%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Incidence ALK+ mns NSCLC (7% of mns NSCLC)","percentage":"4.24%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Squamous NSCLC (25% of all NSCLC)","percentage":"22.00%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Stage I-II early Squamous NSCLC (33% of s NSCLC)","percentage":"7.26%","source":"Prevalence of type and etiology of lung cancer among the patients presented to a tertiary care hospital at central Kerala: a descriptive study"},
+                {"field":"Metastatic (Stage III-IV) Squamous NSCLC (67% of s NSCLC)","percentage":"14.74%","source":"Prevalence of type and etiology of lung cancer among the patients presented to a tertiary care hospital at central Kerala: a descriptive study"},
+                {"field":"SCLC patients (12% of all LuCa)","percentage":"12.00%","source":"https://www.sciencedirect.com/science/article/pii/S1110036216300590, http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Limited Stage (40% of all SCLC)","percentage":"4.80%","source":"Advisory board & https://www.sciencedirect.com/science/article/pii/S1110036216300590"},
+                {"field":"Extensive Stage (60% of all SCLC)","percentage":"7.20%","source":"Advisory board & https://www.sciencedirect.com/science/article/pii/S1110036216300590"},
+                {"field":"Patients with CNS Mets ES- SCLC (8.5% of ext stage SCLC)","percentage":"0.61%","source":"Estimates from Clinical trial IMpower133, https://www.nejm.org/doi/full/10.1056/NEJMoa1809064"},
+                {"field":"Patients without CNS Mets ES- SCLC (91.5% of ext stage SCLC)","percentage":"6.59%","source":"Estimates from Clinical trial IMpower133, https://www.nejm.org/doi/full/10.1056/NEJMoa1809064"},
+                {"field":"1L mns ALK+ NSCLC","percentage":"4.24%","source":""},
+                {"field":"2L mns ALK+ NSCLC (55% of all 1L mns NSCLC)","percentage":"2.33%","source":""},
+                {"field":"Lung Cancer patients eligible for Alecensa (% of all LuCa)","percentage":"6.57%","source":""}
+            ],
+            "1L ALK+LC":[
+            ],
+            "2L ALK+LC":[
+            ]
+        },
+        "Tecentriq":{
+            "common":[
+
+                {"field":"Total Lung Cancer patients (5.8 per 100,000)","percentage":"100.00%","source":"Globocan 2018 - https://gco.iarc.fr/today/data/factsheets/populations/356-india-fact-sheets.pdf"},
+                {"field":"NSCLC patients (88% of all LuCa)","percentage":"88.00%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Non Squamous NSCLC (75% of all NSCLC)","percentage":"66.00%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Stage I-II early ns NSCLC (33% of ns NSCLC)","percentage":"21.78%","source":"Prevalence of type and etiology of lung cancer among the patients presented to a tertiary care hospital at central Kerala: a descriptive study"},
+                {"field":"Metastatic (Stage III-IV) ns NSCLC - De Novo (67% of ns NSCLC)","percentage":"44.22%","source":"Prevalence of type and etiology of lung cancer among the patients presented to a tertiary care hospital at central Kerala: a descriptive study"},
+                {"field":"Metastatic (Stage III-IV) ns NSCLC from Stage I-II (75% of ns NSCLC) last two years prevalent Stage I-II Pool","percentage":"16.34%","source":"This row is for  % of stage 1/2 patients that will progress to stage 3/4 (Assumption based on internal estimate  75% of all stage 1/2 patients will progress to stage 3/4)"},
+                {"field":"Total metastatic (Stage III-IV) Non Squamous NSCLC","percentage":"60.56%","source":"Sum of row 28 & 29 divide by row 26 ( Total patient population of new diagnosis plus old patient pool)"},
+                {"field":"Incidence (no EGFR / ALK ns NSCLC) (63% of mns NSCLC) (metastatic Wild Type)","percentage":"38.15%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Incidence EGFR+ mns NSCLC (30% of mns NSCLC)","percentage":"18.17%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Incidence ALK+ mns NSCLC (7% of mns NSCLC)","percentage":"4.24%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Squamous NSCLC (25% of all NSCLC)","percentage":"22.00%","source":"http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Stage I-II early Squamous NSCLC (33% of s NSCLC)","percentage":"7.26%","source":"Prevalence of type and etiology of lung cancer among the patients presented to a tertiary care hospital at central Kerala: a descriptive study"},
+                {"field":"Metastatic (Stage III-IV) Squamous NSCLC (67% of s NSCLC)","percentage":"14.74%","source":"Prevalence of type and etiology of lung cancer among the patients presented to a tertiary care hospital at central Kerala: a descriptive study"},
+                {"field":"SCLC patients (12% of all LuCa)","percentage":"12.00%","source":"https://www.sciencedirect.com/science/article/pii/S1110036216300590, http://journal.sajc.org/article.asp?issn=2278-330X;year=2017;volume=6;issue=4;spage=171;epage=175;aulast=Singh"},
+                {"field":"Limited Stage (40% of all SCLC)","percentage":"4.80%","source":"Advisory board & https://www.sciencedirect.com/science/article/pii/S1110036216300590"},
+                {"field":"Extensive Stage (60% of all SCLC)","percentage":"7.20%","source":"Advisory board & https://www.sciencedirect.com/science/article/pii/S1110036216300590"},
+                {"field":"Patients with CNS Mets ES- SCLC (8.5% of ext stage SCLC)","percentage":"0.61%","source":"Estimates from Clinical trial IMpower133, https://www.nejm.org/doi/full/10.1056/NEJMoa1809064"},
+                {"field":"Patients without CNS Mets ES- SCLC (91.5% of ext stage SCLC)","percentage":"6.59%","source":"Estimates from Clinical trial IMpower133, https://www.nejm.org/doi/full/10.1056/NEJMoa1809064"}
+            ],
+            "1L NSCLC":[
+                {"field":"1L (No EGFR / No ALK ns NSCLC) ( metastatic Wild Type)","percentage":"38.15%","source":""},
+                {"field":"1L (EGFR+ mnsNSCLC TKI exhausted) (30% of Row 65)","percentage":"5.45%","source":"Increased from 20% to 30% based on allginment"},
+                {"field":"Lung Cancer patients eligible for Tecentriq (% of all LuCa)","percentage":"76.63%"}
+            ],
+            "2L NSCLC":[{"field":"2L NSCLC (50% of Row 64 & 69)","percentage":"26.44%","source":"50% of both Non Sq and Sq population"}],
+            "SCLC":[{"field":"1L ES-SCLC (91.5% of Row 72)","percentage":"6.59%","source":""}],
+            "TNBC":[
+                {"field":"Total Breast Cancer patients (14.4 per 100,000)","percentage":"100.00%","source":"http://cancerindia.org.in/globocan-2018-india-factsheet/"},
+                {"field":"TNBC Breast Cancer patients (30% of all BrCa)","percentage":"30.00%","source":"7 per 100,000 (DRG) & 31% of BC (Globocan), 32% of BC ( J Globe Oncology 2016)"},
+                {"field":"TNBC  Stage I (9% of all TNBC BrCa)","percentage":"2.70%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"TNBC  Stage II (43% of all TNBC BrCa)","percentage":"12.90%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"TNBC  Stage III A (10% of all TNBC BrCa)","percentage":"3.00%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"TNBC  Stage III B (24% of all TNBC BrCa)","percentage":"7.20%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"TNBC  Stage IV (14% of all TNBC BrCa)","percentage":"4.20%","source":"https://insights.decisionresourcesgroup.com/disease/breast-cancer/epidemiology/emerging-markets-data"},
+                {"field":"TNBC  Recurrent patients (30% of all TNBC)","percentage":"12.11%","source":"Recurrent patient share from DRG. Applied this % to Stage II pattients i.e. 43% of TNBC patients 1L drug treatable patients (all Stage II recurrent & beyond TNBC BrCa) 23.51%"},
+                {"field":"PDL-1 positive patients (41% of all TNBC BrCa)","percentage":"9.64%","source":""},
+                {"field":"TNBC patients eligible for Tecentriq (% of all BrCa)","percentage":"9.64%","source":""}
+            ],
+            "HCC":[
+                {"field":"Total Liver Cancer patients (2.1 per 100,000)","percentage":"100.00%","source":""},
+                {"field":"HCC patients (90% of all LiCa)","percentage":"90.00%","source":"https://www.bms.com/assets/bms/us/en-us/pdf/Disease-State-Info/HEPATOCELLULAR-CARCINOMA-BY-THE-NUMBERS.pdf"},
+                {"field":"Localized HCC (not in label) (19% of all HCC)","percentage":"17.10%","source":"Market research: Obtained from interaction with 12 KOLs (medical oncologists / surgical oncologists in India treating HCC patients)"},
+                {"field":"Locally Advanced HCC (37% of all HCC)","percentage":"33.30%","source":"Market research: Obtained from interaction with 12 KOLs (medical oncologists / surgical oncologists in India treating HCC patients)"},
+                {"field":"Resectable LA HCC (not in label) (14% of LA HCC)","percentage":"4.66%","source":"Market research: Obtained from interaction with 12 KOLs (medical oncologists / surgical oncologists in India treating HCC patients)"},
+                {"field":"Un-resectable LA HCC (86% of LA HCC)","percentage":"28.64%","source":"Market research: Obtained from interaction with 12 KOLs (medical oncologists / surgical oncologists in India treating HCC patients)"},
+                {"field":"Patient Eligible for Systemic Therapy (57% of all Un-resectable LA HCC) (Sorafenib/Lenvatinib/Chemo)","percentage":"16.32%","source":"Pool eligible for Tencetriq"},
+                {"field":"Recurrent / Metastatic HCC (44% of all HCC)","percentage":"39.60%","source":"Market research: Obtained from interaction with 12 KOLs (medical oncologists / surgical oncologists in India treating HCC patients)"},
+                {"field":"1L R/M HCC (100% of R/M HCC)","percentage":"39.60%","source":""},
+                {"field":"1L R/M HCC (76% are eligible for systemic therapy; 24% have Child Pugh C status hence not eligible)","percentage":"30.10%","source":"Pool eligible for Tencetriq"},
+                {"field":"2L R/M HCC (not in label) (31% of R/M HCC)","percentage":"12.28%","source":"Market research: Obtained from interaction with 12 KOLs (medical oncologists / surgical oncologists in India treating HCC patients)"},
+                {"field":"3L R/M HCC (not in label) (17% of R/M HCC)","percentage":"6.73%","source":"Market research: Obtained from interaction with 12 KOLs (medical oncologists / surgical oncologists in India treating HCC patients)"},
+                {"field":"Liver Cancer patients eligible for Tecentriq (% of all LiCa)","percentage":"46.42%","source":"Total pool eligible for Tecentriq"}
+            ]
+        },
+        "Hemlibra":{
+            "common":[
+                {"field":"Total Hemophilia patients (10 per 100,000)","percentage":"100.00%","source":"A Srivastava et al, Haemophilia,  (2013), 19, e1–e47"},
+                {"field":"Hemophilia A (80% of all PwH)","percentage":"80.00%","source":"Sachdeva Anupam et al, Indian Pediatrics , volume 55; July 15, 2018; 582-590"},
+                {"field":"Mild Hemophilia A (5% of all PwH-A)","percentage":"4.00%","source":"Haemophilia. 2001 May;7(3):273-8."},
+                {"field":"Moderate Hemophilia A (10% of all PwH-A)","percentage":"8.00%","source":"Haemophilia. 2001 May;7(3):273-8."},
+                {"field":"Severe Hemophilia A (85% of all PwH-A)","percentage":"68.00%","source":"Haemophilia. 2001 May;7(3):273-8."},
+                {"field":"Severe Hemophilia A with inihibitors (9% of all s PwH-A)","percentage":"6.12%","source":"Phadke S , Indian J Hemat Blood Transfusion; 2011 Sep; 27(3): 121–126."},
+                {"field":"Severe Hemophilia A age 0-12 (26% of all s PwH-A)","percentage":"17.68%","source":"WFH Annual Global Survey 2017, published in October 2018"},
+                {"field":"Severe Hemophilia A age 12-18 (16% of all s PwH-A)","percentage":"10.88%","source":"WFH Annual Global Survey 2017, published in October 2018"},
+                {"field":"Severe Hemophilia A age >12 (58% of all s PwH-A)","percentage":"39.44%","source":"WFH Annual Global Survey 2017, published in October 2018"},
+                {"field":"Hemophilia patients eligible for Hemlibra (% of all PwH)","percentage":"68.00%","source":""}]
+        }
+    }
+}
+}

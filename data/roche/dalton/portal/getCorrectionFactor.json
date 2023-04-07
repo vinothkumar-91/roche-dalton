@@ -1,0 +1,18 @@
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 1,
+            "cl_id": 100,
+            "oop": 75,
+            "def": 100,
+            "cghs": 100,
+            "railways": 100,
+            "psu": 100,
+            "esi": 90,
+            "stGvt": 100,
+            "others": 100
+        }
+    ]
+}

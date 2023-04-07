@@ -1,0 +1,4 @@
+{
+	"responsecode":200,"message":"login Successfull",
+	"data":{"token":"asd"},"role":"admin","region":["PBCH","WB"]
+}

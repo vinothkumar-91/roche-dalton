@@ -1,0 +1,51 @@
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 100,
+            "name": "Breast","inputSublevel":false,
+            "indList": [
+                {"id": 100,"name": "HER2 Neo Adj","ig_id": 100},
+                {"id": 101,"name": "HER2 Adj","ig_id": 100},
+                {"id": 102,"name": "HER2 mBC","ig_id": 100},
+                {"id": 103,"name": "HER2 eBC","ig_id": 100},
+                {"id": 104,"name": "TNBC","ig_id": 100}
+            ]
+        },
+        {
+            "id": 200,
+            "name": "Lung","inputSublevel":false,
+            "indList": [
+                {"id": 200,"name": "1L NSCLC","ig_id": 100},
+                {"id": 201,"name": "2L NSCLC","ig_id": 100},
+                {"id": 202,"name": "SCLC","ig_id": 100},
+                {"id": 203,"name": "1L ALK+LC","ig_id": 100},
+                {"id": 204,"name": "2L ALK+LC","ig_id": 100}
+            ]
+        },
+        {
+            "id": 300,
+            "name": "Hematology","inputSublevel":true,
+            "indList": [
+                {"id": 301,"name": "FL","ig_id": 100},
+                {"id": 302,"name": "CLL","ig_id": 100}
+            ]
+        },
+        {
+            "id": 300,
+            "name": "Hema tology","inputSublevel":true,
+            "indList": [
+                {"id": 301,"name": "FL 1","ig_id": 100},
+                {"id": 302,"name": "CLL 2","ig_id": 100}
+            ]
+        },
+        {
+            "id": 400,
+            "name": "Liver","inputSublevel":true,
+            "indList": [
+                {"id": 401,"name": "HCC","ig_id": 100}
+            ]
+        }
+    ]
+}

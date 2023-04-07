@@ -1,0 +1,83 @@
+
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 23,
+            "igName": "Breast",
+            "name": "HER2 mBC",
+            "eligible": 0.28
+        },
+        {
+            "id": 24,
+            "igName": "Breast",
+            "name": "HER2 eBC",
+            "eligible": 0.09
+        },
+        {
+            "id": 25,
+            "igName": "Breast",
+            "name": "TNBC",
+            "eligible": 0.01
+        },
+        {
+            "id": 26,
+            "igName": "Lung",
+            "name": "1L NSCLC",
+            "eligible": 0.44
+        },
+        {
+            "id": 27,
+            "igName": "Lung",
+            "name": "2L NSCLC",
+            "eligible": 0.26
+        },
+        {
+            "id": 28,
+            "igName": "Lung",
+            "name": "SCLC",
+            "eligible": 0.07
+        },
+        {
+            "id": 29,
+            "igName": "Lung",
+            "name": "1L ALK+LC",
+            "eligible": 0.04
+        },
+        {
+            "id": 30,
+            "igName": "Lung",
+            "name": "2L ALK+LC",
+            "eligible": 0.02
+        },
+        {
+            "id": 31,
+            "igName": "GI",
+            "name": "HCC",
+            "eligible": 0.46
+        },
+        {
+            "id": 33,
+            "igName": "Hematology",
+            "name": "FL"
+        },
+        {
+            "id": 34,
+            "igName": "Hematology",
+            "name": "CLL"
+        },
+        {
+            "id": 35,
+            "igName": "Breast",
+            "name": "HER2 Neo Adj",
+            "eligible": 0.18
+        },
+        {
+            "id": 22,
+            "igName": "Breast",
+            "name": "HER Adj",
+            "eligible": 0.09
+        }
+    ]
+}

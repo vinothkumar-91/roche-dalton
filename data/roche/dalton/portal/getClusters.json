@@ -1,0 +1,11 @@
+
+{
+    "responsecode": 200,
+    "status": "SUCCESS",
+    "response": [
+        {
+            "id": 100,
+            "name": "cluster1"
+        }
+    ]
+}
